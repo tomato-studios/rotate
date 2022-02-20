@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:rotate/src/roster/parser.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 
 void main() {
@@ -109,6 +110,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> _extractAllText() async {
+    ParserUtils utils = ParserUtils();
+    const String identLine = 'Individualdutyplanfor';
+
     //Load the existing PDF document.
     PdfDocument document =
         PdfDocument(inputBytes: await _readDocumentData('Roster_22_03.pdf'));
@@ -121,6 +125,8 @@ class _MyHomePageState extends State<MyHomePage> {
     Iterable<String> list = LineSplitter.split(text);
 
     list.forEach((e) {
+      if (e.startsWith(identLine)) {}
+
       print("> $e");
     });
 
