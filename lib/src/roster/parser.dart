@@ -48,6 +48,10 @@ class ParserUtils {
     newRoster.dateRange = DateTimeRange(
         start: dateFormat.parse(matches.group(7)!),
         end: dateFormat.parse(matches.group(11)!));
+
+    // Duty-List
+    rawText = rawText.replaceAll("\n", " ");
+    rawText = rawText.replaceAll(RegExp(r"\r\n|\n|\r"), " ");
   }
 
   static Future<void> extractAllText() async {
