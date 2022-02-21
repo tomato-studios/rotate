@@ -21,6 +21,8 @@ class ParserUtils {
   static final regexPkLine = RegExp(r'(\w{3})CFG\/CREW\/(\d*\w{1})');
   static final regexIdLine = RegExp(
       r'^Individualdutyplanfor\d*\w{1}(.*),(.*)NetLine.*CREWLINK((\d{2})(\D{3})(\d{2})).*Period:((\d{2})(\D{3})(\d{2}))-((\d{2})(\D{3})(\d{2}))');
+  static final regexDutyLines = RegExp(
+      r'((?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\d{2})(?:(\S+)([A-Z]{3})(?:(\d{4})(\d{4}))?(\w*)?|X).*?(?:\[(FT\d{1,2}:\d{2})\])?(?:\s*?\[(DP\d{1,2}:\d{2})\])?(?:\s*?\[(FDP\d{1,2}:\d{2})\])?(?:\s*?\[(RT\d{1,2}:\d{2})\])?(?:\s*?\[(mFDP\d{1,2}:\d{2})\])?(.*?)(?:\[(EQ\d{1,2}:\d{2})\]).*?(?:\[(BZW\d{1,2}:\d{2})\])');
 
   static const testRoster = 'Roster_22_03.pdf';
   static const idLineStartString = 'Individualdutyplanfor';
@@ -50,8 +52,15 @@ class ParserUtils {
         end: dateFormat.parse(matches.group(11)!));
 
     // Duty-List
-    rawText = rawText.replaceAll("\n", " ");
     rawText = rawText.replaceAll(RegExp(r"\r\n|\n|\r"), " ");
+    Iterable<RegExpMatch> dutyList = regexDutyLines.allMatches(rawText);
+
+    dutyList.forEach((element) {
+      logger.w("===================================");
+      for (var i = 0; i < element.groupCount; i++) {
+        logger.d(element.group(i));
+      }
+    });
   }
 
   static Future<void> extractAllText() async {
