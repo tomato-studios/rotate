@@ -4,6 +4,7 @@ import 'dart:js_util';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import 'package:rotate/src/roster/roster.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 
@@ -18,8 +19,13 @@ var logger = Logger(
 ///
 class ParserUtils {
   static final regexPkLine = RegExp(r'(\w{3})CFG\/CREW\/(\d*\w{1})');
+  static final regexIdLine = RegExp(
+      r'^Individualdutyplanfor\d*\w{1}(.*),(.*)NetLine.*CREWLINK((\d{2})(\D{3})(\d{2})).*Period:((\d{2})(\D{3})(\d{2}))-((\d{2})(\D{3})(\d{2}))');
+
   static const testRoster = 'Roster_22_03.pdf';
   static const idLineStartString = 'Individualdutyplanfor';
+
+  static DateFormat dateFormat = DateFormat("ddMMMyy");
 
   // TODO: Check if Roster already exists, if yes update
 
@@ -29,13 +35,19 @@ class ParserUtils {
 
     logger.d(rawText);
 
+    // First Line (PK-Line)
     RegExpMatch? matches = regexPkLine.firstMatch(list.elementAt(0));
     newRoster.baseLocator = matches?.group(1);
     newRoster.pkNumber = matches?.group(2);
 
-    matches = regexPkLine.firstMatch(list.elementAt(1));
-    newRoster.baseLocator = matches?.group(1);
-    newRoster.pkNumber = matches?.group(2);
+    // Second Line (ID-Line)
+    matches = regexIdLine.firstMatch(list.elementAt(1));
+    newRoster.user.surName = matches?.group(1);
+    newRoster.user.name = matches?.group(2);
+    newRoster.generationTime = dateFormat.parse(matches!.group(3)!);
+    newRoster.dateRange = DateTimeRange(
+        start: dateFormat.parse(matches.group(7)!),
+        end: dateFormat.parse(matches.group(11)!));
   }
 
   static Future<void> extractAllText() async {

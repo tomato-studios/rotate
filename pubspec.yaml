@@ -37,6 +37,7 @@ dependencies:
   syncfusion_flutter_pdf: ^19.4.52-beta
   json_annotation: ^4.4.0
   logger: ^1.1.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
