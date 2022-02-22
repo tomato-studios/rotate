@@ -37,18 +37,6 @@ jobs:
       - name: Testing main project 
         run: flutter test test
 
-      - name: Pub get aviation_units
-        working-directory: ./local_packages/aviation_units
-        run: flutter pub get
-
-      - name: Pub get aviation_entities
-        working-directory: ./local_packages/aviation_entities
-        run: flutter pub get
-
-      - name: Pub get navigation_data
-        working-directory: ./local_packages/navigation_data
-        run: flutter pub get
-
       - name: Testing packages 
         run: flutter test local_packages
 
