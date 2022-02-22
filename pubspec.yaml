@@ -17,7 +17,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   domain_model:
     path: local_packages/domain_model
-  faker: ^2.0.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
