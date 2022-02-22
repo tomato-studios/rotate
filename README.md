@@ -1,16 +1,32 @@
 # rotate
 
-A new Flutter project.
+`$ git clone https://github.com/tomato-studios/rotate.git --recurse-submodules`
 
-## Getting Started
+## General Folder Structure
 
-This project is a starting point for a Flutter application.
+Parts of the app (like each individual page) or module should have
 
-A few resources to get you started if this is your first Flutter project:
+* an `application` folder
+  * for business logic, e.g. provided by blocs or cubits
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+* an `infrastructure` folder
+  * for communicating with remote services like APIs
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* a `presentation` folder
+  * for ui related stuff like widgets
+
+* a `domain` folder
+  * for domain models like data classes, entities and enums
+
+## Initialize a git submodule
+
+`$ git submodule add -b main [URL to Git repo] local_packages/[repo name]`
+`$ git submodule init`
+
+## Start Code Generation once
+
+`$ flutter pub run build_runner build --delete-conflicting-outputs`
+
+## Start and Watch Code Generation
+
+`$ flutter pub run build_runner watch --delete-conflicting-outputs`

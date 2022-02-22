@@ -1,2 +1,19 @@
 {
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/*.freezed.dart": true,
+    "**/*.g.dart": true,
+    "**/.gitkeep": false,
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true,
+    "**/generated_plugin_registrant.dart": true
+  },
+  "explorerExclude.backup": null
 }

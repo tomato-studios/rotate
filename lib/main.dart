@@ -2,11 +2,12 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:rotate/core/presentation/app_widget.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+Future<void> main() async => runApp(AppWidget());
+
+// runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -63,44 +64,44 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             TextButton(
-              child: const Text(
-                'Extract all text',
-                style: TextStyle(color: Colors.white),
-              ),
               style: ButtonStyle(
                   foregroundColor:
                       MaterialStateProperty.all<Color>(Colors.blue),
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Colors.red)),
               onPressed: _extractAllText,
+              child: const Text(
+                'Extract all text',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
             TextButton(
+              onPressed: _extractTextWithBounds,
               child: const Text(
                 'Extract text with predefined bounds',
                 style: TextStyle(color: Colors.white),
               ),
-              onPressed: _extractTextWithBounds,
             ),
             TextButton(
+              onPressed: _extractTextFromSpecificPage,
               child: const Text(
                 'Extract text from a specific page',
                 style: TextStyle(color: Colors.white),
               ),
-              onPressed: _extractTextFromSpecificPage,
             ),
             TextButton(
+              onPressed: _extractTextFromRangeOfPage,
               child: const Text(
                 'Extract text from a range of pages',
                 style: TextStyle(color: Colors.white),
               ),
-              onPressed: _extractTextFromRangeOfPage,
             ),
             TextButton(
+              onPressed: _extractTextWithFontAndStyleInformation,
               child: const Text(
                 'Extract text with font and style information',
                 style: TextStyle(color: Colors.white),
               ),
-              onPressed: _extractTextWithFontAndStyleInformation,
             )
           ],
         ),
@@ -110,19 +111,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _extractAllText() async {
     //Load the existing PDF document.
-    PdfDocument document =
+    final PdfDocument document =
         PdfDocument(inputBytes: await _readDocumentData('Roster_22_03.pdf'));
 
     //Create the new instance of the PdfTextExtractor.
-    PdfTextExtractor extractor = PdfTextExtractor(document);
+    final PdfTextExtractor extractor = PdfTextExtractor(document);
 
     //Extract all the text from the document.
-    String text = extractor.extractText();
-    Iterable<String> list = LineSplitter.split(text);
+    final String text = extractor.extractText();
+    final Iterable<String> list = LineSplitter.split(text);
 
-    list.forEach((e) {
-      print("> $e");
-    });
+    for (final e in list) {
+      print('> $e');
+    }
 
     // Removed /i at the end
     // Removed / in front - Thanks to Günter for warning
@@ -146,22 +147,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _extractTextWithBounds() async {
     //Load the existing PDF document.
-    PdfDocument document =
+    final PdfDocument document =
         PdfDocument(inputBytes: await _readDocumentData('invoice.pdf'));
 
     //Create the new instance of the PdfTextExtractor.
-    PdfTextExtractor extractor = PdfTextExtractor(document);
+    final PdfTextExtractor extractor = PdfTextExtractor(document);
 
     //Extract all the text from the particular page.
-    List<TextLine> result = extractor.extractTextLines(startPageIndex: 0);
+    final List<TextLine> result = extractor.extractTextLines(startPageIndex: 0);
 
     //Predefined bound.
-    Rect textBounds = const Rect.fromLTWH(474, 161, 50, 9);
+    final Rect textBounds = const Rect.fromLTWH(474, 161, 50, 9);
 
     String invoiceNumber = '';
 
     for (int i = 0; i < result.length; i++) {
-      List<TextWord> wordCollection = result[i].wordCollection;
+      final List<TextWord> wordCollection = result[i].wordCollection;
       for (int j = 0; j < wordCollection.length; j++) {
         if (textBounds.overlaps(wordCollection[j].bounds)) {
           invoiceNumber = wordCollection[j].text;
@@ -179,14 +180,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _extractTextFromSpecificPage() async {
     //Load the existing PDF document.
-    PdfDocument document =
+    final PdfDocument document =
         PdfDocument(inputBytes: await _readDocumentData('pdf_succinctly.pdf'));
 
     //Create the new instance of the PdfTextExtractor.
-    PdfTextExtractor extractor = PdfTextExtractor(document);
+    final PdfTextExtractor extractor = PdfTextExtractor(document);
 
     //Extract all the text from the first page of the PDF document.
-    String text = extractor.extractText(startPageIndex: 2);
+    final String text = extractor.extractText(startPageIndex: 2);
 
     //Display the text.
     _showResult(text);
@@ -194,14 +195,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _extractTextFromRangeOfPage() async {
     //Load the existing PDF document.
-    PdfDocument document =
+    final PdfDocument document =
         PdfDocument(inputBytes: await _readDocumentData('pdf_succinctly.pdf'));
 
     //Create the new instance of the PdfTextExtractor.
-    PdfTextExtractor extractor = PdfTextExtractor(document);
+    final PdfTextExtractor extractor = PdfTextExtractor(document);
 
     //Extract all the text from the first page to 3rd page of the PDF document.
-    String text = extractor.extractText(startPageIndex: 0, endPageIndex: 2);
+    final String text =
+        extractor.extractText(startPageIndex: 0, endPageIndex: 2);
 
     //Display the text.
     _showResult(text);
@@ -209,31 +211,31 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _extractTextWithFontAndStyleInformation() async {
     //Load the existing PDF document.
-    PdfDocument document =
+    final PdfDocument document =
         PdfDocument(inputBytes: await _readDocumentData('invoice.pdf'));
 
     //Create the new instance of the PdfTextExtractor.
-    PdfTextExtractor extractor = PdfTextExtractor(document);
+    final PdfTextExtractor extractor = PdfTextExtractor(document);
 
     //Extract all the text from specific page.
-    List<TextLine> result = extractor.extractTextLines(startPageIndex: 0);
+    final List<TextLine> result = extractor.extractTextLines(startPageIndex: 0);
 
     //Draw rectangle..
     for (int i = 0; i < result.length; i++) {
-      List<TextWord> wordCollection = result[i].wordCollection;
+      final List<TextWord> wordCollection = result[i].wordCollection;
       for (int j = 0; j < wordCollection.length; j++) {
         if ('2058557939' == wordCollection[j].text) {
           //Get the font name.
-          String fontName = wordCollection[j].fontName;
+          final String fontName = wordCollection[j].fontName;
           //Get the font size.
-          double fontSize = wordCollection[j].fontSize;
+          final double fontSize = wordCollection[j].fontSize;
           //Get the font style.
-          List<PdfFontStyle> fontStyle = wordCollection[j].fontStyle;
+          final List<PdfFontStyle> fontStyle = wordCollection[j].fontStyle;
           //Get the text.
-          String text = wordCollection[j].text;
+          final String text = wordCollection[j].text;
           String fontStyleText = '';
           for (int i = 0; i < fontStyle.length; i++) {
-            fontStyleText += fontStyle[i].toString() + ' ';
+            fontStyleText += '${fontStyle[i]} ';
           }
           fontStyleText = fontStyleText.replaceAll('PdfFontStyle.', '');
           _showResult(
@@ -259,9 +261,9 @@ class _MyHomePageState extends State<MyHomePage> {
             title: const Text('Extracted text'),
             content: Scrollbar(
               child: SingleChildScrollView(
-                child: Text(text),
                 physics: const BouncingScrollPhysics(
                     parent: AlwaysScrollableScrollPhysics()),
+                child: Text(text),
               ),
             ),
             actions: [

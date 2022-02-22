@@ -1,0 +1,24 @@
+name: theming
+
+environment:
+  sdk: ">=2.14.0<3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  aviation_entities:
+    path: ../aviation_entities
+  coordinate_drawer:
+    git:
+      url: https://github.com/tmaihoff/coordinate_drawer.git
+  flutter:
+    sdk: flutter
+  google_fonts: ^2.1.0
+  lint: ^1.8.2
+
+dev_dependencies:
+  flutter_lints: ^1.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
