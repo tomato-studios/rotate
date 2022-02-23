@@ -18,6 +18,10 @@ Parts of the app (like each individual page) or module should have
 * a `domain` folder
   * for domain models like data classes, entities and enums
 
+## Pull including submodules
+
+`$ git submodule update --init --recursive`
+
 ## Initialize a git submodule
 
 `$ git submodule add -b main [URL to Git repo] local_packages/[repo name]`
