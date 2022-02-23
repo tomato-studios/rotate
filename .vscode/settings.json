@@ -8,12 +8,16 @@
     "**/Thumbs.db": true,
     "**/*.freezed.dart": true,
     "**/*.g.dart": true,
-    "**/.gitkeep": false,
+    "**/.gitkeep": true,
     "**/.classpath": true,
     "**/.project": true,
     "**/.settings": true,
     "**/.factorypath": true,
-    "**/generated_plugin_registrant.dart": true
+    "**/generated_plugin_registrant.dart": true,
+    "**/.flutter-plugins": true,
+    "**/.flutter-plugins-dependencies": true,
+    "**/.packages": true,
+    "**/.metadata": true
   },
   "explorerExclude.backup": null
 }
