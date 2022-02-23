@@ -2,6 +2,7 @@
 // for details. All rights reserved.
 
 import 'package:flutter/material.dart';
+import 'package:rotate/src/roster/crewMember.dart';
 import 'package:rotate/src/roster/duty.dart';
 import 'package:rotate/src/user/user.dart';
 
@@ -17,4 +18,5 @@ class Roster {
   DateTimeRange? dateRange;
 
   Iterable<Duty> dutyList = Iterable.empty();
+  Iterable<CrewMember> crewMemberList = Iterable.empty();
 }
