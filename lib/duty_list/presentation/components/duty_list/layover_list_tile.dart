@@ -13,8 +13,10 @@ class LayoverListTile extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('🌴 Layover at ${layover.airport}',
-            style: Theme.of(context).textTheme.button),
+        Text(
+          '🌴 Layover at ${layover.airport}',
+          style: Theme.of(context).textTheme.button,
+        ),
       ],
     );
   }

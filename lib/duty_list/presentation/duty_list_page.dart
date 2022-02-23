@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:rotate/duty_list/application/cubit/duty_list_cubit.dart';
-import 'package:rotate/duty_list/presentation/components/duty_list.dart';
+import 'package:rotate/duty_list/presentation/components/duty_list/duty_list.dart';
+import 'package:rotate/duty_list/presentation/components/duty_list_fab.dart';
 import 'package:rotate/duty_list/presentation/components/settings_bottom_sheet.dart';
+import 'package:rotate/duty_list/presentation/utils/date_time_extension.dart';
 
 class DutyListPage extends StatelessWidget {
   const DutyListPage({Key? key}) : super(key: key);
@@ -29,11 +31,14 @@ class DutyListPage extends StatelessWidget {
               ],
             ),
             body: DutyListState.watch(context).map(
-              loaded: (state) => DutyList(state),
+              loaded: (state) => DutyList(
+                state: state,
+              ),
               loading: (_) => const Center(
                 child: CircularProgressIndicator(),
               ),
             ),
+            floatingActionButton: const DutyListFloatingActionButton(),
           );
         },
       ),
@@ -42,25 +47,18 @@ class DutyListPage extends StatelessWidget {
 }
 
 class DayListTile extends StatelessWidget {
-  const DayListTile({required this.day, Key? key}) : super(key: key);
+  const DayListTile({required this.date, Key? key}) : super(key: key);
 
-  final DateTime day;
+  final DateTime date;
 
   @override
   Widget build(BuildContext context) {
-    final formatter = DateFormat('dd.MM.yyyy');
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
-      child: Text(
-        formatter.format(day),
-        style: Theme.of(context).textTheme.button,
-      ),
+    final formatter = DateFormat('EEE dd.MM.yyyy');
+    final textColor =
+        date.isToday() ? Theme.of(context).colorScheme.secondary : null;
+    return Text(
+      formatter.format(date),
+      style: Theme.of(context).textTheme.button!.copyWith(color: textColor),
     );
-  }
-}
-
-extension DateOnlyCompare on DateTime {
-  bool isSameDate(DateTime other) {
-    return year == other.year && month == other.month && day == other.day;
   }
 }
