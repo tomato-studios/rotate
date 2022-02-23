@@ -3,11 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rotate/src/roster/parser.dart';
+import 'package:rotate/core/presentation/app_widget.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+Future<void> main() async => runApp(AppWidget());
+
+// runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -64,16 +65,16 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             TextButton(
-              child: const Text(
-                'Extract all text',
-                style: TextStyle(color: Colors.white),
-              ),
               style: ButtonStyle(
                   foregroundColor:
                       MaterialStateProperty.all<Color>(Colors.blue),
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Colors.red)),
               onPressed: ParserUtils.extractAllText,
+              child: const Text(
+                'Extract all text',
+                style: TextStyle(color: Colors.white),
+              ),
             )
           ],
         ),
@@ -89,9 +90,9 @@ class _MyHomePageState extends State<MyHomePage> {
             title: const Text('Extracted text'),
             content: Scrollbar(
               child: SingleChildScrollView(
-                child: Text(text),
                 physics: const BouncingScrollPhysics(
                     parent: AlwaysScrollableScrollPhysics()),
+                child: Text(text),
               ),
             ),
             actions: [

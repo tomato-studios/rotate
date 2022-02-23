@@ -1,0 +1,12 @@
+[submodule "local_packages/aviation_entities"]
+	path = local_packages/aviation_entities
+	url = https://github.com/tmaihoff/aviation_entities.git
+	branch = main
+[submodule "local_packages/aviation_units"]
+	path = local_packages/aviation_units
+	url = https://github.com/tmaihoff/aviation_units.git
+	branch = main
+[submodule "local_packages/navigation_data"]
+	path = local_packages/navigation_data
+	url = https://github.com/tmaihoff/navigation_data.git
+	branch = main
