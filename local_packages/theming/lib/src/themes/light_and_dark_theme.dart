@@ -45,18 +45,20 @@ ThemeData _theme(Brightness brightness) {
   );
 
   //* DARK THEME ADJUSTMENTS
-  if (brightness == Brightness.dark) {
-    theme = theme.copyWith(
-      //* APP BAR
-      appBarTheme: AppBarTheme(
-        color: theme.colorScheme.background,
-        foregroundColor: theme.colorScheme.background.textColor,
-        centerTitle: true,
-      ),
-    );
-  }
+  theme = theme.copyWith(
+    //* APP BAR
+    appBarTheme: AppBarTheme(
+      color: theme.colorScheme.background,
+      foregroundColor: theme.colorScheme.background.textColor,
+    ),
+  );
 
   return theme.copyWith(
+    //* APP BAR
+    appBarTheme: theme.appBarTheme.copyWith(
+      centerTitle: true,
+    ),
+
     //* BOTTOM SHEET
     bottomSheetTheme: BottomSheetThemeData(
       backgroundColor: theme.colorScheme.background,
