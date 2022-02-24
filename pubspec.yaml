@@ -33,6 +33,7 @@ dependencies:
   json_annotation: ^4.4.0
   theming:
     path: local_packages/theming
+  yaml: ^3.1.0
 
 dev_dependencies:
   auto_route_generator: ^3.2.3
