@@ -3,7 +3,7 @@ import 'package:domain_model/domain_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:navigation_data/navigation_data.dart';
-import 'package:rotate/duty_list/presentation/components/duty_list/duty_list_entry.dart';
+import 'package:rotate/duty_list_page/presentation/components/duty_list/duty_list_entry.dart';
 import 'package:theming/theming.dart';
 
 class FlightListTile extends StatelessWidget {

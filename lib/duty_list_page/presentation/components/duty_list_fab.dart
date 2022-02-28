@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:rotate/duty_list/application/cubit/duty_list_cubit.dart';
+import 'package:rotate/duty_list_page/application/cubit/duty_list_cubit.dart';
 import 'package:theming/theming.dart';
 
 class DutyListFloatingActionButton extends StatelessWidget {
@@ -17,7 +17,7 @@ class DutyListFloatingActionButton extends StatelessWidget {
           );
         });
       },
-      tooltip: 'Today',
+      tooltip: '➡ Today',
       child: const Icon(Icons.today),
     );
   }

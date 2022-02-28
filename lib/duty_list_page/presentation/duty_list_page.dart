@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:rotate/duty_list/application/cubit/duty_list_cubit.dart';
-import 'package:rotate/duty_list/presentation/components/duty_list/duty_list.dart';
-import 'package:rotate/duty_list/presentation/components/duty_list_fab.dart';
-import 'package:rotate/duty_list/presentation/components/settings_bottom_sheet.dart';
-import 'package:rotate/duty_list/presentation/utils/date_time_extension.dart';
+import 'package:rotate/duty_list_page/application/cubit/duty_list_cubit.dart';
+import 'package:rotate/duty_list_page/presentation/components/duty_list/duty_list.dart';
+import 'package:rotate/duty_list_page/presentation/components/duty_list_fab.dart';
+import 'package:rotate/duty_list_page/presentation/utils/date_time_extension.dart';
 
 class DutyListPage extends StatelessWidget {
   const DutyListPage({Key? key}) : super(key: key);
@@ -18,18 +17,6 @@ class DutyListPage extends StatelessWidget {
         builder: (context) {
           return Scaffold(
             backgroundColor: Theme.of(context).backgroundColor,
-            appBar: AppBar(
-              title: const Text('Your Roster'),
-              actions: [
-                IconButton(
-                  icon: const Icon(Icons.settings),
-                  onPressed: () => showModalBottomSheet(
-                    context: context,
-                    builder: (context) => const SettingsModal(),
-                  ),
-                ),
-              ],
-            ),
             body: DutyListState.watch(context).map(
               loaded: (state) => DutyList(
                 state: state,

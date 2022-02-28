@@ -44,8 +44,7 @@ class AppWidget extends StatelessWidget {
             listener: (context, state) {
               state.map(
                 loading: (_) => _appRouter.push(const SplashPageRoute()),
-                initialized: (_) =>
-                    _appRouter.replace(const DutyListPageRoute()),
+                initialized: (_) => _appRouter.replace(const HomePageRoute()),
               );
             },
             child: MaterialApp.router(

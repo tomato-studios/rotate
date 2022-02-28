@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:infinite_listview/infinite_listview.dart';
-import 'package:rotate/duty_list/application/mock_duty_generator.dart';
+import 'package:rotate/duty_list_page/application/mock_duty_generator.dart';
 
 part 'duty_list_cubit.freezed.dart';
 part 'duty_list_state.dart';
