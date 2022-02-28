@@ -14,14 +14,37 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Duty _$DutyFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'off':
+      return Off.fromJson(json);
+    case 'layover':
+      return Layover.fromJson(json);
+    case 'standby':
+      return StandbyDuty.fromJson(json);
+    case 'reserve':
+      return Reserve.fromJson(json);
+    case 'flight':
+      return FlightDuty.fromJson(json);
+    case 'groundEvent':
+      return GroundEvent.fromJson(json);
+    case 'groundTransport':
+      return GroundTransport.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'Duty',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
 /// @nodoc
 class _$DutyTearOff {
   const _$DutyTearOff();
 
   Off off(
       {required String dutyCode,
-      required DateTime start,
-      required DateTime end}) {
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end}) {
     return Off(
       dutyCode: dutyCode,
       start: start,
@@ -31,8 +54,8 @@ class _$DutyTearOff {
 
   Layover layover(
       {required String dutyCode,
-      required DateTime start,
-      required DateTime end,
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end,
       required String airport}) {
     return Layover(
       dutyCode: dutyCode,
@@ -44,8 +67,8 @@ class _$DutyTearOff {
 
   StandbyDuty standby(
       {required String dutyCode,
-      required DateTime start,
-      required DateTime end}) {
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end}) {
     return StandbyDuty(
       dutyCode: dutyCode,
       start: start,
@@ -55,8 +78,8 @@ class _$DutyTearOff {
 
   Reserve reserve(
       {required String dutyCode,
-      required DateTime start,
-      required DateTime end}) {
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end}) {
     return Reserve(
       dutyCode: dutyCode,
       start: start,
@@ -66,8 +89,8 @@ class _$DutyTearOff {
 
   FlightDuty flight(
       {required String dutyCode,
-      required DateTime start,
-      required DateTime end,
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end,
       required String from,
       required String to}) {
     return FlightDuty(
@@ -81,8 +104,8 @@ class _$DutyTearOff {
 
   GroundEvent groundEvent(
       {required String dutyCode,
-      required DateTime start,
-      required DateTime end}) {
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end}) {
     return GroundEvent(
       dutyCode: dutyCode,
       start: start,
@@ -92,8 +115,8 @@ class _$DutyTearOff {
 
   GroundTransport groundTransport(
       {required String dutyCode,
-      required DateTime start,
-      required DateTime end,
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end,
       required String from,
       required String to}) {
     return GroundTransport(
@@ -104,6 +127,10 @@ class _$DutyTearOff {
       to: to,
     );
   }
+
+  Duty fromJson(Map<String, Object?> json) {
+    return Duty.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -112,63 +139,102 @@ const $Duty = _$DutyTearOff();
 /// @nodoc
 mixin _$Duty {
   String get dutyCode => throw _privateConstructorUsedError;
+  @timestampConverter
   DateTime get start => throw _privateConstructorUsedError;
+  @timestampConverter
   DateTime get end => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String airport)
         layover,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         standby,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         reserve,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         flight,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         groundEvent,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         groundTransport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
     required TResult orElse(),
   }) =>
@@ -207,7 +273,7 @@ mixin _$Duty {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $DutyCopyWith<Duty> get copyWith => throw _privateConstructorUsedError;
 }
@@ -216,7 +282,10 @@ mixin _$Duty {
 abstract class $DutyCopyWith<$Res> {
   factory $DutyCopyWith(Duty value, $Res Function(Duty) then) =
       _$DutyCopyWithImpl<$Res>;
-  $Res call({String dutyCode, DateTime start, DateTime end});
+  $Res call(
+      {String dutyCode,
+      @timestampConverter DateTime start,
+      @timestampConverter DateTime end});
 }
 
 /// @nodoc
@@ -255,7 +324,10 @@ abstract class $OffCopyWith<$Res> implements $DutyCopyWith<$Res> {
   factory $OffCopyWith(Off value, $Res Function(Off) then) =
       _$OffCopyWithImpl<$Res>;
   @override
-  $Res call({String dutyCode, DateTime start, DateTime end});
+  $Res call(
+      {String dutyCode,
+      @timestampConverter DateTime start,
+      @timestampConverter DateTime end});
 }
 
 /// @nodoc
@@ -291,17 +363,29 @@ class _$OffCopyWithImpl<$Res> extends _$DutyCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$Off extends Off {
-  const _$Off({required this.dutyCode, required this.start, required this.end})
-      : super._();
+  const _$Off(
+      {required this.dutyCode,
+      @timestampConverter required this.start,
+      @timestampConverter required this.end,
+      String? $type})
+      : $type = $type ?? 'off',
+        super._();
+
+  factory _$Off.fromJson(Map<String, dynamic> json) => _$$OffFromJson(json);
 
   @override
   final String dutyCode;
   @override
+  @timestampConverter
   final DateTime start;
   @override
+  @timestampConverter
   final DateTime end;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -332,22 +416,45 @@ class _$Off extends Off {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String airport)
         layover,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         standby,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         reserve,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         flight,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         groundEvent,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         groundTransport,
   }) {
     return off(dutyCode, start, end);
@@ -356,19 +463,26 @@ class _$Off extends Off {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
   }) {
     return off?.call(dutyCode, start, end);
@@ -377,19 +491,26 @@ class _$Off extends Off {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
     required TResult orElse(),
   }) {
@@ -444,20 +565,29 @@ class _$Off extends Off {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$OffToJson(this);
+  }
 }
 
 abstract class Off extends Duty {
   const factory Off(
       {required String dutyCode,
-      required DateTime start,
-      required DateTime end}) = _$Off;
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end}) = _$Off;
   const Off._() : super._();
+
+  factory Off.fromJson(Map<String, dynamic> json) = _$Off.fromJson;
 
   @override
   String get dutyCode;
   @override
+  @timestampConverter
   DateTime get start;
   @override
+  @timestampConverter
   DateTime get end;
   @override
   @JsonKey(ignore: true)
@@ -469,7 +599,11 @@ abstract class $LayoverCopyWith<$Res> implements $DutyCopyWith<$Res> {
   factory $LayoverCopyWith(Layover value, $Res Function(Layover) then) =
       _$LayoverCopyWithImpl<$Res>;
   @override
-  $Res call({String dutyCode, DateTime start, DateTime end, String airport});
+  $Res call(
+      {String dutyCode,
+      @timestampConverter DateTime start,
+      @timestampConverter DateTime end,
+      String airport});
 }
 
 /// @nodoc
@@ -510,23 +644,33 @@ class _$LayoverCopyWithImpl<$Res> extends _$DutyCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$Layover extends Layover {
   const _$Layover(
       {required this.dutyCode,
-      required this.start,
-      required this.end,
-      required this.airport})
-      : super._();
+      @timestampConverter required this.start,
+      @timestampConverter required this.end,
+      required this.airport,
+      String? $type})
+      : $type = $type ?? 'layover',
+        super._();
+
+  factory _$Layover.fromJson(Map<String, dynamic> json) =>
+      _$$LayoverFromJson(json);
 
   @override
   final String dutyCode;
   @override
+  @timestampConverter
   final DateTime start;
   @override
+  @timestampConverter
   final DateTime end;
   @override
   final String airport;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -560,22 +704,45 @@ class _$Layover extends Layover {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String airport)
         layover,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         standby,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         reserve,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         flight,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         groundEvent,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         groundTransport,
   }) {
     return layover(dutyCode, start, end, airport);
@@ -584,19 +751,26 @@ class _$Layover extends Layover {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
   }) {
     return layover?.call(dutyCode, start, end, airport);
@@ -605,19 +779,26 @@ class _$Layover extends Layover {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
     required TResult orElse(),
   }) {
@@ -672,21 +853,30 @@ class _$Layover extends Layover {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$LayoverToJson(this);
+  }
 }
 
 abstract class Layover extends Duty {
   const factory Layover(
       {required String dutyCode,
-      required DateTime start,
-      required DateTime end,
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end,
       required String airport}) = _$Layover;
   const Layover._() : super._();
+
+  factory Layover.fromJson(Map<String, dynamic> json) = _$Layover.fromJson;
 
   @override
   String get dutyCode;
   @override
+  @timestampConverter
   DateTime get start;
   @override
+  @timestampConverter
   DateTime get end;
   String get airport;
   @override
@@ -700,7 +890,10 @@ abstract class $StandbyDutyCopyWith<$Res> implements $DutyCopyWith<$Res> {
           StandbyDuty value, $Res Function(StandbyDuty) then) =
       _$StandbyDutyCopyWithImpl<$Res>;
   @override
-  $Res call({String dutyCode, DateTime start, DateTime end});
+  $Res call(
+      {String dutyCode,
+      @timestampConverter DateTime start,
+      @timestampConverter DateTime end});
 }
 
 /// @nodoc
@@ -737,18 +930,30 @@ class _$StandbyDutyCopyWithImpl<$Res> extends _$DutyCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$StandbyDuty extends StandbyDuty {
   const _$StandbyDuty(
-      {required this.dutyCode, required this.start, required this.end})
-      : super._();
+      {required this.dutyCode,
+      @timestampConverter required this.start,
+      @timestampConverter required this.end,
+      String? $type})
+      : $type = $type ?? 'standby',
+        super._();
+
+  factory _$StandbyDuty.fromJson(Map<String, dynamic> json) =>
+      _$$StandbyDutyFromJson(json);
 
   @override
   final String dutyCode;
   @override
+  @timestampConverter
   final DateTime start;
   @override
+  @timestampConverter
   final DateTime end;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -780,22 +985,45 @@ class _$StandbyDuty extends StandbyDuty {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String airport)
         layover,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         standby,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         reserve,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         flight,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         groundEvent,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         groundTransport,
   }) {
     return standby(dutyCode, start, end);
@@ -804,19 +1032,26 @@ class _$StandbyDuty extends StandbyDuty {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
   }) {
     return standby?.call(dutyCode, start, end);
@@ -825,19 +1060,26 @@ class _$StandbyDuty extends StandbyDuty {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
     required TResult orElse(),
   }) {
@@ -892,20 +1134,30 @@ class _$StandbyDuty extends StandbyDuty {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$StandbyDutyToJson(this);
+  }
 }
 
 abstract class StandbyDuty extends Duty {
   const factory StandbyDuty(
       {required String dutyCode,
-      required DateTime start,
-      required DateTime end}) = _$StandbyDuty;
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end}) = _$StandbyDuty;
   const StandbyDuty._() : super._();
+
+  factory StandbyDuty.fromJson(Map<String, dynamic> json) =
+      _$StandbyDuty.fromJson;
 
   @override
   String get dutyCode;
   @override
+  @timestampConverter
   DateTime get start;
   @override
+  @timestampConverter
   DateTime get end;
   @override
   @JsonKey(ignore: true)
@@ -918,7 +1170,10 @@ abstract class $ReserveCopyWith<$Res> implements $DutyCopyWith<$Res> {
   factory $ReserveCopyWith(Reserve value, $Res Function(Reserve) then) =
       _$ReserveCopyWithImpl<$Res>;
   @override
-  $Res call({String dutyCode, DateTime start, DateTime end});
+  $Res call(
+      {String dutyCode,
+      @timestampConverter DateTime start,
+      @timestampConverter DateTime end});
 }
 
 /// @nodoc
@@ -954,18 +1209,30 @@ class _$ReserveCopyWithImpl<$Res> extends _$DutyCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$Reserve extends Reserve {
   const _$Reserve(
-      {required this.dutyCode, required this.start, required this.end})
-      : super._();
+      {required this.dutyCode,
+      @timestampConverter required this.start,
+      @timestampConverter required this.end,
+      String? $type})
+      : $type = $type ?? 'reserve',
+        super._();
+
+  factory _$Reserve.fromJson(Map<String, dynamic> json) =>
+      _$$ReserveFromJson(json);
 
   @override
   final String dutyCode;
   @override
+  @timestampConverter
   final DateTime start;
   @override
+  @timestampConverter
   final DateTime end;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -997,22 +1264,45 @@ class _$Reserve extends Reserve {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String airport)
         layover,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         standby,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         reserve,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         flight,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         groundEvent,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         groundTransport,
   }) {
     return reserve(dutyCode, start, end);
@@ -1021,19 +1311,26 @@ class _$Reserve extends Reserve {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
   }) {
     return reserve?.call(dutyCode, start, end);
@@ -1042,19 +1339,26 @@ class _$Reserve extends Reserve {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
     required TResult orElse(),
   }) {
@@ -1109,20 +1413,29 @@ class _$Reserve extends Reserve {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ReserveToJson(this);
+  }
 }
 
 abstract class Reserve extends Duty {
   const factory Reserve(
       {required String dutyCode,
-      required DateTime start,
-      required DateTime end}) = _$Reserve;
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end}) = _$Reserve;
   const Reserve._() : super._();
+
+  factory Reserve.fromJson(Map<String, dynamic> json) = _$Reserve.fromJson;
 
   @override
   String get dutyCode;
   @override
+  @timestampConverter
   DateTime get start;
   @override
+  @timestampConverter
   DateTime get end;
   @override
   @JsonKey(ignore: true)
@@ -1136,7 +1449,11 @@ abstract class $FlightDutyCopyWith<$Res> implements $DutyCopyWith<$Res> {
       _$FlightDutyCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String dutyCode, DateTime start, DateTime end, String from, String to});
+      {String dutyCode,
+      @timestampConverter DateTime start,
+      @timestampConverter DateTime end,
+      String from,
+      String to});
 }
 
 /// @nodoc
@@ -1182,26 +1499,36 @@ class _$FlightDutyCopyWithImpl<$Res> extends _$DutyCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FlightDuty extends FlightDuty {
   const _$FlightDuty(
       {required this.dutyCode,
-      required this.start,
-      required this.end,
+      @timestampConverter required this.start,
+      @timestampConverter required this.end,
       required this.from,
-      required this.to})
-      : super._();
+      required this.to,
+      String? $type})
+      : $type = $type ?? 'flight',
+        super._();
+
+  factory _$FlightDuty.fromJson(Map<String, dynamic> json) =>
+      _$$FlightDutyFromJson(json);
 
   @override
   final String dutyCode;
   @override
+  @timestampConverter
   final DateTime start;
   @override
+  @timestampConverter
   final DateTime end;
   @override
   final String from;
   @override
   final String to;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -1237,22 +1564,45 @@ class _$FlightDuty extends FlightDuty {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String airport)
         layover,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         standby,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         reserve,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         flight,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         groundEvent,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         groundTransport,
   }) {
     return flight(dutyCode, start, end, from, to);
@@ -1261,19 +1611,26 @@ class _$FlightDuty extends FlightDuty {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
   }) {
     return flight?.call(dutyCode, start, end, from, to);
@@ -1282,19 +1639,26 @@ class _$FlightDuty extends FlightDuty {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
     required TResult orElse(),
   }) {
@@ -1349,22 +1713,32 @@ class _$FlightDuty extends FlightDuty {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FlightDutyToJson(this);
+  }
 }
 
 abstract class FlightDuty extends Duty {
   const factory FlightDuty(
       {required String dutyCode,
-      required DateTime start,
-      required DateTime end,
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end,
       required String from,
       required String to}) = _$FlightDuty;
   const FlightDuty._() : super._();
 
+  factory FlightDuty.fromJson(Map<String, dynamic> json) =
+      _$FlightDuty.fromJson;
+
   @override
   String get dutyCode;
   @override
+  @timestampConverter
   DateTime get start;
   @override
+  @timestampConverter
   DateTime get end;
   String get from;
   String get to;
@@ -1380,7 +1754,10 @@ abstract class $GroundEventCopyWith<$Res> implements $DutyCopyWith<$Res> {
           GroundEvent value, $Res Function(GroundEvent) then) =
       _$GroundEventCopyWithImpl<$Res>;
   @override
-  $Res call({String dutyCode, DateTime start, DateTime end});
+  $Res call(
+      {String dutyCode,
+      @timestampConverter DateTime start,
+      @timestampConverter DateTime end});
 }
 
 /// @nodoc
@@ -1417,18 +1794,30 @@ class _$GroundEventCopyWithImpl<$Res> extends _$DutyCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$GroundEvent extends GroundEvent {
   const _$GroundEvent(
-      {required this.dutyCode, required this.start, required this.end})
-      : super._();
+      {required this.dutyCode,
+      @timestampConverter required this.start,
+      @timestampConverter required this.end,
+      String? $type})
+      : $type = $type ?? 'groundEvent',
+        super._();
+
+  factory _$GroundEvent.fromJson(Map<String, dynamic> json) =>
+      _$$GroundEventFromJson(json);
 
   @override
   final String dutyCode;
   @override
+  @timestampConverter
   final DateTime start;
   @override
+  @timestampConverter
   final DateTime end;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -1460,22 +1849,45 @@ class _$GroundEvent extends GroundEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String airport)
         layover,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         standby,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         reserve,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         flight,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         groundEvent,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         groundTransport,
   }) {
     return groundEvent(dutyCode, start, end);
@@ -1484,19 +1896,26 @@ class _$GroundEvent extends GroundEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
   }) {
     return groundEvent?.call(dutyCode, start, end);
@@ -1505,19 +1924,26 @@ class _$GroundEvent extends GroundEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
     required TResult orElse(),
   }) {
@@ -1572,20 +1998,30 @@ class _$GroundEvent extends GroundEvent {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$GroundEventToJson(this);
+  }
 }
 
 abstract class GroundEvent extends Duty {
   const factory GroundEvent(
       {required String dutyCode,
-      required DateTime start,
-      required DateTime end}) = _$GroundEvent;
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end}) = _$GroundEvent;
   const GroundEvent._() : super._();
+
+  factory GroundEvent.fromJson(Map<String, dynamic> json) =
+      _$GroundEvent.fromJson;
 
   @override
   String get dutyCode;
   @override
+  @timestampConverter
   DateTime get start;
   @override
+  @timestampConverter
   DateTime get end;
   @override
   @JsonKey(ignore: true)
@@ -1600,7 +2036,11 @@ abstract class $GroundTransportCopyWith<$Res> implements $DutyCopyWith<$Res> {
       _$GroundTransportCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String dutyCode, DateTime start, DateTime end, String from, String to});
+      {String dutyCode,
+      @timestampConverter DateTime start,
+      @timestampConverter DateTime end,
+      String from,
+      String to});
 }
 
 /// @nodoc
@@ -1647,26 +2087,36 @@ class _$GroundTransportCopyWithImpl<$Res> extends _$DutyCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$GroundTransport extends GroundTransport {
   const _$GroundTransport(
       {required this.dutyCode,
-      required this.start,
-      required this.end,
+      @timestampConverter required this.start,
+      @timestampConverter required this.end,
       required this.from,
-      required this.to})
-      : super._();
+      required this.to,
+      String? $type})
+      : $type = $type ?? 'groundTransport',
+        super._();
+
+  factory _$GroundTransport.fromJson(Map<String, dynamic> json) =>
+      _$$GroundTransportFromJson(json);
 
   @override
   final String dutyCode;
   @override
+  @timestampConverter
   final DateTime start;
   @override
+  @timestampConverter
   final DateTime end;
   @override
   final String from;
   @override
   final String to;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -1702,22 +2152,45 @@ class _$GroundTransport extends GroundTransport {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String airport)
         layover,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         standby,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         reserve,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         flight,
-    required TResult Function(String dutyCode, DateTime start, DateTime end)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end)
         groundEvent,
-    required TResult Function(String dutyCode, DateTime start, DateTime end,
-            String from, String to)
+    required TResult Function(
+            String dutyCode,
+            @timestampConverter DateTime start,
+            @timestampConverter DateTime end,
+            String from,
+            String to)
         groundTransport,
   }) {
     return groundTransport(dutyCode, start, end, from, to);
@@ -1726,19 +2199,26 @@ class _$GroundTransport extends GroundTransport {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
   }) {
     return groundTransport?.call(dutyCode, start, end, from, to);
@@ -1747,19 +2227,26 @@ class _$GroundTransport extends GroundTransport {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String dutyCode, DateTime start, DateTime end)? off,
-    TResult Function(
-            String dutyCode, DateTime start, DateTime end, String airport)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        off,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String airport)?
         layover,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? standby,
-    TResult Function(String dutyCode, DateTime start, DateTime end)? reserve,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        standby,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
+        reserve,
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         flight,
-    TResult Function(String dutyCode, DateTime start, DateTime end)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end)?
         groundEvent,
-    TResult Function(String dutyCode, DateTime start, DateTime end, String from,
-            String to)?
+    TResult Function(String dutyCode, @timestampConverter DateTime start,
+            @timestampConverter DateTime end, String from, String to)?
         groundTransport,
     required TResult orElse(),
   }) {
@@ -1814,22 +2301,32 @@ class _$GroundTransport extends GroundTransport {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$GroundTransportToJson(this);
+  }
 }
 
 abstract class GroundTransport extends Duty {
   const factory GroundTransport(
       {required String dutyCode,
-      required DateTime start,
-      required DateTime end,
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end,
       required String from,
       required String to}) = _$GroundTransport;
   const GroundTransport._() : super._();
 
+  factory GroundTransport.fromJson(Map<String, dynamic> json) =
+      _$GroundTransport.fromJson;
+
   @override
   String get dutyCode;
   @override
+  @timestampConverter
   DateTime get start;
   @override
+  @timestampConverter
   DateTime get end;
   String get from;
   String get to;
