@@ -16,14 +16,14 @@ class ImportPage extends StatelessWidget {
       child: Builder(
         builder: (context) {
           return Scaffold(
-            // explained: BlocConsumer both contains BlocBuilder and BlocListener
+            //_ BlocConsumer both contains BlocBuilder and BlocListener
             body: BlocConsumer<ImportCubit, ImportState>(
               // The builder builds different widgets based on the state.
-              // Used for displayed content
+              // Used for displaying content
               builder: (context, state) {
                 return AnimatedSwitcher(
                   duration: Theme.of(context).duration.medium,
-                  // state.map provides all available states and displayed different content based on the state
+                  // state.map provides all available states and displays different content based on the state
                   child: state.map(
                     initial: (_) => const InitialBody(),
                     importing: (state) => ImportingBody(state),

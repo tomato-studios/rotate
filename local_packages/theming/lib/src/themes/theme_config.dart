@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:theming/src/themes/components/border_radius.dart';
 import 'package:theming/src/themes/components/duration.dart';
 import 'package:theming/src/themes/components/shape.dart';
+import 'package:theming/src/themes/components/spacing.dart';
 import 'package:theming/src/themes/padding.dart';
 import 'package:theming/src/utils/create_material_color.dart';
 
@@ -14,6 +15,7 @@ extension ThemeDataX on ThemeData {
   Shapes get shapeBorder => Shapes();
   Paddings get padding => Paddings();
   Durations get duration => Durations();
+  Spacing get spacing => Spacing();
 
   /// Bottom offset by onscreen navigation elements
   set bottomOffset(double value) => _bottomOffset = value;

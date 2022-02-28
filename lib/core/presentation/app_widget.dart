@@ -20,6 +20,10 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //_ [MultiBlocProvider] can be used to provide multiple Blocs or Cubits to a Widget tree
+    // without nesting single [BlocProvider]. Here they are all on the same 'level' which makes it nicer to read.
+    // Blocs which are provided here above [MaterialApp] are available throughout the app and can be accessed
+    // via the context.
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -38,8 +42,13 @@ class AppWidget extends StatelessWidget {
           create: (context) => _settingsCubit,
         ),
       ],
+      //_ We need a [Builder] in between a [BlocProvider] and a [BlocBuilder] or [BlocListener] for it to work properly.
+      // If it's missing, the Bloc or Cubit can't accessed and we get a [ProviderNotFoundException].
       child: Builder(
         builder: (context) {
+          //_ [BlocListeners] listen to state changes and perform a one-time action.
+          // Here we navigate to the SplashPage if the loading state comes active and
+          // then replace that route with the HomePage once initialization is finished.
           return BlocListener<InitializationCubit, InitializationState>(
             listener: (context, state) {
               state.map(

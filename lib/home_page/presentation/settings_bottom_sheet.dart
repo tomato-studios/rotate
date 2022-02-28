@@ -9,6 +9,8 @@ class SettingsModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //_ AppBottomSheet is defined in the `theming` package and should be used whenever we show
+    // a bottom sheet. There, the design with the rounded corners is defined.
     return AppBottomSheet(
       child: Column(
         children: [
@@ -27,9 +29,9 @@ class SettingsModal extends StatelessWidget {
             onTap: () => ThemeCubit.of(context).nextThemeMode(),
             trailing: Wrap(
               children: const [
-                ThemeModeButton(mode: ThemeMode.dark),
-                ThemeModeButton(mode: ThemeMode.light),
-                ThemeModeButton(mode: ThemeMode.system),
+                _ThemeModeButton(mode: ThemeMode.dark),
+                _ThemeModeButton(mode: ThemeMode.light),
+                _ThemeModeButton(mode: ThemeMode.system),
               ],
             ),
           ),
@@ -77,8 +79,8 @@ class _SwitchListTile extends StatelessWidget {
   }
 }
 
-class ThemeModeButton extends StatelessWidget {
-  const ThemeModeButton({Key? key, required this.mode}) : super(key: key);
+class _ThemeModeButton extends StatelessWidget {
+  const _ThemeModeButton({Key? key, required this.mode}) : super(key: key);
   final ThemeMode mode;
   @override
   Widget build(BuildContext context) {

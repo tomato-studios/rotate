@@ -11,7 +11,7 @@ void setFullscreen() {
 
     SystemChrome.setEnabledSystemUIMode(
       SystemUiMode.manual,
-      overlays: [SystemUiOverlay.bottom],
+      overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom],
     );
 
     SystemChrome.setSystemUIChangeCallback(

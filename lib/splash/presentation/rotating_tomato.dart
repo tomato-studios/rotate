@@ -2,6 +2,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+//_ Here is an example of a simple animation.
+// Animations need a StatefulWidget. Inside the `initState` method the `AnimationController` is set up.
+// For the vsync we also need to provide the `SingleTickerProviderStateMixin` to the state.
+// The animation can then be started by `_controller.forward()`, _controller.reverse()` or _controller.repeat()`.
+// A controller should always be disposed after it is no longer needed. This happens in the widget `dispose` method.
+// an `AnimatedBuilder` widget is then used to build the an animated widget. Simpler animations can
+// be achieved by using widgets like `AnimatedSwitcher`, `AnimatedContainer` where you only have to provide
+// the animation duration and the respective changes are then automatically animated.
 class RotatingTomato extends StatefulWidget {
   const RotatingTomato({Key? key}) : super(key: key);
 

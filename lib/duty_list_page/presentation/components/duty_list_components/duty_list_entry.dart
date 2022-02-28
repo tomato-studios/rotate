@@ -1,11 +1,11 @@
 import 'package:domain_model/domain_model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:rotate/duty_list_page/presentation/components/duty_list/flight_list_tile.dart';
-import 'package:rotate/duty_list_page/presentation/components/duty_list/layover_list_tile.dart';
-import 'package:rotate/duty_list_page/presentation/components/duty_list/off_list_tile.dart';
-import 'package:rotate/duty_list_page/presentation/components/duty_list/reserve_list_tile.dart';
-import 'package:rotate/duty_list_page/presentation/components/duty_list/standby_list_tile.dart';
+import 'package:rotate/duty_list_page/presentation/components/duty_list_components/flight_list_tile.dart';
+import 'package:rotate/duty_list_page/presentation/components/duty_list_components/layover_list_tile.dart';
+import 'package:rotate/duty_list_page/presentation/components/duty_list_components/off_list_tile.dart';
+import 'package:rotate/duty_list_page/presentation/components/duty_list_components/reserve_list_tile.dart';
+import 'package:rotate/duty_list_page/presentation/components/duty_list_components/standby_list_tile.dart';
 import 'package:theming/theming.dart';
 
 class DutyListEntry extends StatelessWidget {

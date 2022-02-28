@@ -10,14 +10,14 @@ class DutyListFloatingActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {
-        // addPostFrameCallback necessary because otherwise scrollcrontroller is not bound to a list and throws
+        // addPostFrameCallback necessary because otherwise scrollController is not bound to a list and throws
         SchedulerBinding.instance?.addPostFrameCallback((_) {
           DutyListCubit.of(context).animateListToToday(
             duration: Theme.of(context).duration.long,
           );
         });
       },
-      tooltip: '➡ Today',
+      tooltip: 'Today',
       child: const Icon(Icons.today),
     );
   }

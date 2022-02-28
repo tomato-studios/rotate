@@ -1,6 +1,8 @@
 import 'package:rotate/shared/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+///_ Holds a global app setting which is automatically persisted to the
+/// [SharedPreferences] upon change. Supports [bool], [int], [double], [String].
 class Setting<T> {
   final SharedPreferences prefs;
   final String key;

@@ -18,11 +18,15 @@ part 'initialization_state.dart';
 
 typedef FutureVoid = Future<void> Function();
 
+///_ Here all actions take place which have to be done before showing anything to the user.
+/// Like e.g. database initialization and calling of other initialize methods of other Cubits.
+/// While initializatino is in progress, the SplashPage is shown to the user.
 class InitializationCubit extends Cubit<InitializationState> {
   InitializationCubit() : super(const InitializationState.loading());
 
-  Future<void> initialize(
-      {required List<FutureVoid> initializeFunctions}) async {
+  Future<void> initialize({
+    required List<FutureVoid> initializeFunctions,
+  }) async {
     Logger.level = Level.debug;
     logger.i('logging level: ${Logger.level}');
 
@@ -58,12 +62,13 @@ Future<void> _initializeNavigationData(String? dbPath) async {
   );
 }
 
+// Application directory might be different on different os and os versions.
+// The package path_provider handles this and provides the correct path for
+// method `getApplicationDocumentsDirectory()`.
 Future<String> _getDbPath() async {
   if (kIsWeb) {
     return '';
   }
-  // Application directory might be different on different os and os versions.
-  //The package path_provider handles this and provides the correct path.
   final dbDirectory = await getApplicationDocumentsDirectory();
   dbDirectory.create(recursive: true);
   return dbDirectory.path;
@@ -75,7 +80,6 @@ Future<void> _fillDbWithMockDuties() async {
     return;
   }
   await dutyRepository.deleteAll();
-  await Future.delayed(const Duration(seconds: 1));
   final duties = generateMockDuties();
   await dutyRepository.putDuties(duties.toSet());
 }
