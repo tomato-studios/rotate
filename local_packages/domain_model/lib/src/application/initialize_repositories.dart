@@ -7,7 +7,7 @@ import 'package:sembast/sembast.dart';
 class DomainModelRepositories {
   /// Instantiates the domain model repository [SembastDutyRepository] and
   /// registers it in the [GetIt] service locator.
-  static Future<void> initialize(DatabaseClient sembastDatabaseClient) async {
+  static void initialize(DatabaseClient sembastDatabaseClient) {
     final repository = SembastDutyRepository(sembastDatabaseClient);
     GetIt.I.registerSingleton<DutyRepository>(repository);
   }
