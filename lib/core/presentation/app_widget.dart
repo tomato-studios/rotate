@@ -44,20 +44,11 @@ class AppWidget extends StatelessWidget {
             listener: (context, state) {
               state.map(
                 loading: (_) => _appRouter.push(const SplashPageRoute()),
-<<<<<<< HEAD
-                initialized: (_) =>
-                    _appRouter.replace(const DutyListPageRoute()),
-=======
                 initialized: (_) => _appRouter.replace(const HomePageRoute()),
->>>>>>> rotate/project_structure
               );
             },
             child: MaterialApp.router(
               scrollBehavior: AppScrollBehavior(),
-<<<<<<< HEAD
-              // ignore: avoid_redundant_argument_values
-=======
->>>>>>> rotate/project_structure
               showPerformanceOverlay: !kIsWeb &&
                   SettingsState.watch(context).showPerformanceOverlay,
               title: 'Rotate',

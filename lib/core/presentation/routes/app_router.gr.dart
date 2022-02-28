@@ -10,27 +10,6 @@
 //
 // ignore_for_file: type=lint
 
-<<<<<<< HEAD
-import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:flutter/material.dart' as _i4;
-
-import '../../../duty_list/presentation/duty_list_page.dart' as _i2;
-import '../../../splash/presentation/splash_page.dart' as _i1;
-
-class AppRouter extends _i3.RootStackRouter {
-  AppRouter([_i4.GlobalKey<_i4.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
-
-  @override
-  final Map<String, _i3.PageFactory> pagesMap = {
-    SplashPageRoute.name: (routeData) {
-      return _i3.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.SplashPage());
-    },
-    DutyListPageRoute.name: (routeData) {
-      return _i3.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i2.DutyListPage());
-=======
 import 'package:auto_route/auto_route.dart' as _i5;
 import 'package:flutter/material.dart' as _i6;
 
@@ -60,16 +39,10 @@ class AppRouter extends _i5.RootStackRouter {
     ImportPageRoute.name: (routeData) {
       return _i5.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i4.ImportPage());
->>>>>>> rotate/project_structure
     }
   };
 
   @override
-<<<<<<< HEAD
-  List<_i3.RouteConfig> get routes => [
-        _i3.RouteConfig(SplashPageRoute.name, path: '/'),
-        _i3.RouteConfig(DutyListPageRoute.name, path: '/')
-=======
   List<_i5.RouteConfig> get routes => [
         _i5.RouteConfig(SplashPageRoute.name, path: '/'),
         _i5.RouteConfig(HomePageRoute.name, path: '/', children: [
@@ -78,31 +51,18 @@ class AppRouter extends _i5.RootStackRouter {
           _i5.RouteConfig(ImportPageRoute.name,
               path: 'import', parent: HomePageRoute.name)
         ])
->>>>>>> rotate/project_structure
       ];
 }
 
 /// generated route for
 /// [_i1.SplashPage]
-<<<<<<< HEAD
-class SplashPageRoute extends _i3.PageRouteInfo<void> {
-=======
 class SplashPageRoute extends _i5.PageRouteInfo<void> {
->>>>>>> rotate/project_structure
   const SplashPageRoute() : super(SplashPageRoute.name, path: '/');
 
   static const String name = 'SplashPageRoute';
 }
 
 /// generated route for
-<<<<<<< HEAD
-/// [_i2.DutyListPage]
-class DutyListPageRoute extends _i3.PageRouteInfo<void> {
-  const DutyListPageRoute() : super(DutyListPageRoute.name, path: '/');
-
-  static const String name = 'DutyListPageRoute';
-}
-=======
 /// [_i2.HomePage]
 class HomePageRoute extends _i5.PageRouteInfo<void> {
   const HomePageRoute({List<_i5.PageRouteInfo>? children})
@@ -126,4 +86,3 @@ class ImportPageRoute extends _i5.PageRouteInfo<void> {
 
   static const String name = 'ImportPageRoute';
 }
->>>>>>> rotate/project_structure
