@@ -54,6 +54,7 @@ Future<void> _initializeNavigationData(String? dbPath) async {
   await NavigationData.initialize(
     isWeb: kIsWeb,
     dbDirectory: dbPath ?? '',
+    loadAirportsOnly: true,
   );
 }
 
