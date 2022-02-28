@@ -15,7 +15,7 @@ class SembastDutyRepository extends DutyRepository {
 
   @override
   Future<void> putDuties(Set<Duty> duties) async {
-    _store.addAll(db, duties.map((duty) => duty.toJson()).toList());
+    await _store.addAll(db, duties.map((duty) => duty.toJson()).toList());
   }
 
   @override
@@ -26,7 +26,8 @@ class SembastDutyRepository extends DutyRepository {
 
   @override
   Future<Set<Duty>> findAllByType(String type) {
-    final finder = Finder(filter: Filter.equals('type', type));
+    // Freezed union type are saved in json as key "runtimeType"
+    final finder = Finder(filter: Filter.equals('runtimeType', type));
     return _findDuties(finder, db, _store);
   }
 
