@@ -46,7 +46,7 @@ Future<void> _initializeActions() async {
   await _initializeNavigationData(dbPath);
   final sembastDb = SembastDatabase();
   await sembastDb.initialize(dbPath);
-  await DomainModelRepositories.initialize(sembastDb.instance);
+  DomainModelRepositories.initialize(sembastDb.instance);
   await _fillDbWithMockDuties();
 }
 
@@ -69,7 +69,12 @@ Future<String> _getDbPath() async {
 }
 
 Future<void> _fillDbWithMockDuties() async {
-  await GetIt.I.get<DutyRepository>().deleteAll();
+  final dutyRepository = GetIt.I.get<DutyRepository>();
+  if ((await dutyRepository.findAll()).isNotEmpty) {
+    return;
+  }
+  await dutyRepository.deleteAll();
+  await Future.delayed(const Duration(seconds: 1));
   final duties = generateMockDuties();
-  await GetIt.I.get<DutyRepository>().putDuties(duties.toSet());
+  await dutyRepository.putDuties(duties.toSet());
 }
