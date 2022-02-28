@@ -49,7 +49,6 @@ class AppWidget extends StatelessWidget {
             },
             child: MaterialApp.router(
               scrollBehavior: AppScrollBehavior(),
-              // ignore: avoid_redundant_argument_values
               showPerformanceOverlay: !kIsWeb &&
                   SettingsState.watch(context).showPerformanceOverlay,
               title: 'Rotate',
