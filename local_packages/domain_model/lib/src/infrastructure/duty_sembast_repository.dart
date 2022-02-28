@@ -74,11 +74,11 @@ class SembastDutyRepository extends DutyRepository {
         ],
       ),
     );
-    print(finder);
     return _store.delete(db, finder: finder);
   }
 }
 
+// ignore: unused_element
 Future<Airport?> _findDuty(
   Finder finder,
   DatabaseClient db,
