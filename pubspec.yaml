@@ -17,6 +17,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   domain_model:
     path: local_packages/domain_model
+  file_picker: ^4.4.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
@@ -34,6 +35,8 @@ dependencies:
   theming:
     path: local_packages/theming
   yaml: ^3.1.0
+  path: ^1.8.0
+  sembast: ^3.2.0
 
 dev_dependencies:
   auto_route_generator: ^3.2.3

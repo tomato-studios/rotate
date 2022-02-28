@@ -1,6 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter/services.dart';
 import 'package:rotate/src/roster/parser.dart';
 import 'package:rotate/core/presentation/app_widget.dart';
@@ -107,3 +106,10 @@ class _MyHomePageState extends State<MyHomePage> {
         });
   }
 }
+=======
+import 'package:rotate/core/presentation/app_widget.dart';
+
+Future<void> main() async => runApp(
+      AppWidget(),
+    );
+>>>>>>> rotate/project_structure
