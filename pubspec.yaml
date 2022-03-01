@@ -10,13 +10,13 @@ environment:
 dependencies:
   auto_route: ^3.2.4
   aviation_entities:
-    path: local_packages/aviation_entities
+    path: packages/aviation_entities
   aviation_units:
-    path: local_packages/aviation_units
+    path: packages/aviation_units
   bloc: ^8.0.2
   cupertino_icons: ^1.0.2
   domain_model:
-    path: local_packages/domain_model
+    path: packages/domain_model
   file_picker: ^4.4.0
   flutter:
     sdk: flutter
@@ -27,14 +27,14 @@ dependencies:
   intl: ^0.17.0
   logger: ^1.1.0
   navigation_data:
-    path: local_packages/navigation_data
+    path: packages/navigation_data
   path: ^1.8.0
   path_provider: ^2.0.9
   sembast: ^3.2.0
   shared_preferences: ^2.0.13
   syncfusion_flutter_pdf: ^19.4.52-beta
   theming:
-    path: local_packages/theming
+    path: packages/theming
 
 dev_dependencies:
   auto_route_generator: ^3.2.3

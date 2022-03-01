@@ -5,7 +5,7 @@ import 'package:domain_model/domain_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'package:rotate/shared/logger.dart';
+import 'package:rotate/utils/logger.dart';
 import 'package:rotate/src/roster/roster.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 
@@ -52,7 +52,6 @@ class ParserUtils {
   static const List<String> _gndCodes = <String>['GC_NL', 'RFT', 'DGR'];
   static const List<String> _trvCodes = <String>['WARPX_3', 'RC'];
   static const List<String> _simCodes = <String>['WARPX_3', 'RC'];
-
 
   // For Debug only
   static const testRoster = 'Roster_22_03.pdf';
@@ -121,26 +120,16 @@ class ParserUtils {
         regexDutyLines.allMatches(rawTextWithoutNewlines);
 
     for (final element in dutyList) {
-      final dutyCode = element.namedGroup(regexDutyCode);
+      final dutyCode = element.namedGroup(regexGroupDutyCode);
 
       if (_offCodes.contains(dutyCode)) {
         DateTime(
-          newRoster.dateRange!.start.year,
-          newRoster.dateRange!.start.month,
-          int.parse(element.namedGroup('Day')!)));
-        Duty duty = Duty.off(dutyCode: dutyCode, start: element.namedGroup(regexGroupDepTime), end: end)
-
+            newRoster.dateRange!.start.year,
+            newRoster.dateRange!.start.month,
+            int.parse(element.namedGroup('Day')!));
       } else if (_gndCodes.contains(dutyCode)) {
-
       } else if (_simCodes.contains(dutyCode)) {
-
-      } else {
-
-      }
-      currDuty.date(DateTime(
-          newRoster.dateRange!.start.year,
-          newRoster.dateRange!.start.month,
-          int.parse(element.namedGroup('Day')!)));
+      } else {}
       logger.e(element.namedGroup("Date"));
       for (var i = 0; i < element.groupCount; i++) {
         logger.d(element.group(i));
@@ -153,8 +142,8 @@ class ParserUtils {
   Future<Iterable<RegExpMatch>> _parseNames(
       String rawText, Roster newRoster) async {
     // Duty-List
-    rawText = rawText.replaceAll(regexNewLine, " ");
-    Iterable<RegExpMatch> nameList = regexNameLines.allMatches(rawText);
+    final rawTextReplaced = rawText.replaceAll(regexNewLine, " ");
+    Iterable<RegExpMatch> nameList = regexNameLines.allMatches(rawTextReplaced);
 
     nameList.forEach((element) {
       logger.w("===================================");
@@ -165,13 +154,5 @@ class ParserUtils {
     });
 
     return nameList;
-  }
-
-  DateTime _getDateTimeFromDay(int day) {
-    DateTime returnTime = DateTime(
-          newRost,
-          newRoster.dateRange!.start.month,
-          day);
-    return returnTime;
   }
 }
