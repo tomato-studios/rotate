@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'duty_element.freezed.dart';
+part 'duty_element.g.dart';
 
 @freezed
 class DutyElement with _$DutyElement {

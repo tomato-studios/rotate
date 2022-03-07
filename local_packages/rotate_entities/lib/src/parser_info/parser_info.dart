@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'parser_info.freezed.dart';
+part 'parser_info.g.dart';
 
 @freezed
 class ParserInfo with _$ParserInfo {
@@ -24,11 +25,5 @@ class ParserInfo with _$ParserInfo {
     return (jsonDecode(jsonString) as List)
         .map((json) => ParserInfo.fromJson(json as Map<String, dynamic>))
         .toList();
-  }
-
-  static ParserInfo returnFirstFromJsonString(String jsonString) {
-    return (jsonDecode(jsonString) as List)
-        .map((json) => ParserInfo.fromJson(json as Map<String, dynamic>))
-        .first;
   }
 }

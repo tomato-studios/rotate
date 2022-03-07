@@ -6,6 +6,7 @@ import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 import 'package:navigation_data/navigation_data.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:roster_parser/roster_parser.dart';
 import 'package:rotate/core/infrastructure/sembast_database.dart';
 import 'package:rotate/core/presentation/device_orientation.dart';
 import 'package:rotate/core/presentation/fullscreen.dart';
@@ -52,6 +53,7 @@ Future<void> _initializeActions() async {
   await sembastDb.initialize(dbPath);
   RotateRepositories.initialize(sembastDb.instance);
   await _fillDbWithMockDuties();
+  RosterParser.initialize('CFG');
 }
 
 Future<void> _initializeNavigationData(String? dbPath) async {

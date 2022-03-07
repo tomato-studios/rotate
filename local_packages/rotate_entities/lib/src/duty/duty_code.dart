@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'duty_code.freezed.dart';
+part 'duty_code.g.dart';
 
 @freezed
 class DutyCode with _$DutyCode {

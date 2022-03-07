@@ -17,6 +17,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   rotate_entities:
     path: local_packages/rotate_entities
+  roster_parser:
+    path: local_packages/roster_parser
   file_picker: ^4.4.0
   flutter:
     sdk: flutter

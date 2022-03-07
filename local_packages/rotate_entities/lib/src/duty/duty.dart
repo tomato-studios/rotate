@@ -1,17 +1,19 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rotate_entities/duty.dart';
 import 'package:rotate_entities/src/duty/utils/timestamp_converter.dart';
+import 'package:sembast/timestamp.dart';
 
 part 'duty.freezed.dart';
+part 'duty.g.dart';
 
 @freezed
 class Duty with _$Duty {
   const Duty._();
 
-  const factory Duty.off(
-      {required String dutyCode,
-      @timestampConverter required DateTime start,
-      @timestampConverter required DateTime end}) = Off;
+  const factory Duty.off({
+    required String dutyCode,
+    @timestampConverter required DateTime start,
+    @timestampConverter required DateTime end,
+  }) = Off;
 
   const factory Duty.layover({
     required String dutyCode,
