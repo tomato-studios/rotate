@@ -1,4 +1,4 @@
-import 'package:domain_model/src/domain/duty.dart';
+import 'package:rotate_entities/src/duty/duty.dart';
 
 abstract class DutyRepository {
   // CREATE

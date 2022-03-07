@@ -1,0 +1,35 @@
+{
+  "duty_codes": {
+    "off_codes": [
+      "OFF",
+      "ORT",
+      "-"
+    ],
+    "hot_codes": [
+      "HOT"
+    ],
+    "sby_codes": [
+      "SBY",
+      "SBY30",
+      "SBYHOT"
+    ],
+    "res_codes": [
+      "RES"
+    ],
+    "flt_codes": [
+      "DTY"
+    ],
+    "gnd_codes": [
+      "GC_NL",
+      "RFT",
+      "DGR"
+    ],
+    "trv_codes": [
+      "TRC"
+    ],
+    "sim_codes": [
+      "WARPX_3",
+      "RC"
+    ]
+  }
+}

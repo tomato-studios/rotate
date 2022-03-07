@@ -1,6 +1,6 @@
-import 'package:domain_model/domain_model.dart';
-import 'package:domain_model/src/infrastructure/duty_sembast_repository.dart';
 import 'package:get_it/get_it.dart';
+import 'package:rotate_entities/duty.dart';
+import 'package:rotate_entities/src/duty/db/duty_sembast_repository.dart';
 import 'package:sembast/sembast.dart';
 
 // ignore: avoid_classes_with_only_static_members

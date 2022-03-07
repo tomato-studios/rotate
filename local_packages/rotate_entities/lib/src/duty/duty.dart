@@ -1,19 +1,18 @@
-import 'package:domain_model/src/utils/timestamp_converter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:sembast/timestamp.dart';
+import 'package:rotate_entities/duty.dart';
+import 'package:rotate_entities/src/duty/utils/timestamp_converter.dart';
 
 part 'duty.freezed.dart';
-part 'duty.g.dart';
 
 @freezed
 class Duty with _$Duty {
   const Duty._();
 
-  const factory Duty.off({
-    required String dutyCode,
-    @timestampConverter required DateTime start,
-    @timestampConverter required DateTime end,
-  }) = Off;
+  const factory Duty.off(
+      {required String dutyCode,
+      @timestampConverter required DateTime start,
+      @timestampConverter required DateTime end,
+      required List<DutyElement> rosterElements}) = Off;
 
   const factory Duty.layover({
     required String dutyCode,

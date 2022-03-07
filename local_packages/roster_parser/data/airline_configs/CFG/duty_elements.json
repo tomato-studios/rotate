@@ -1,0 +1,109 @@
+{
+  "duty_elements": [
+    {
+      "date": {
+        "name": "Date",
+        "description": "Datum",
+        "regex_group_id": "Date"
+      }
+    },
+    {
+      "day": {
+        "name": "Day",
+        "description": "Datum",
+        "regex_group_id": "Date"
+      }
+    },
+    {
+      "duty_code": {
+        "name": "DutyCode",
+        "description": "Datum",
+        "regex_group_id": "Date"
+      }
+    },
+    {
+      "airport": {
+        "name": "Airport",
+        "description": "Datum",
+        "regex_group_id": "Date"
+      }
+    },
+    {
+      "dep_time": {
+        "name": "Departure Time",
+        "description": "Datum",
+        "regex_group_id": "DepTime"
+      }
+    },
+    {
+      "arr_time": {
+        "name": "Date",
+        "description": "Datum",
+        "regex_group_id": "Date"
+      }
+    },
+    {
+      "ac_type": {
+        "name": "Date",
+        "description": "Datum",
+        "regex_group_id": "Date"
+      }
+    },
+    {
+      "ft": {
+        "name": "Date",
+        "description": "Datum",
+        "regex_group_id": "Date"
+      }
+    },
+    {
+      "dp": {
+        "name": "Date",
+        "description": "Datum",
+        "regex_group_id": "Date"
+      }
+    },
+    {
+      "fdp": {
+        "name": "fdp",
+        "description": "Datum",
+        "regex_group_id": "Date"
+      }
+    },
+    {
+      "rt": {
+        "name": "rt",
+        "description": "Datum",
+        "regex_group_id": "Date"
+      }
+    },
+    {
+      "mfdp": {
+        "name": "mfdp",
+        "description": "Datum",
+        "regex_group_id": "Date"
+      }
+    },
+    {
+      "comment": {
+        "name": "comment",
+        "description": "Datum",
+        "regex_group_id": "Date"
+      }
+    },
+    {
+      "eq": {
+        "name": "eq",
+        "description": "Datum",
+        "regex_group_id": "Date"
+      }
+    },
+    {
+      "bzw": {
+        "name": "bzw",
+        "description": "Datum",
+        "regex_group_id": "Date"
+      }
+    }
+  ]
+}

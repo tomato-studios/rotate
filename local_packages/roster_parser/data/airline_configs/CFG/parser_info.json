@@ -1,0 +1,16 @@
+{
+     "parser_info": {
+          "source": "netline",
+          "regex_strings": {
+               "newline": "\\r\\n|\\n|\\r",
+               "pk_line": "(\\w{3})CFG\\/CREW\\/(\\d*\\w{1})",
+               "id_line": "^Individualdutyplanfor\\d*\\w{1}(.*),(.*)NetLine.*CREWLINK((\\d{2})(\\D{3})(\\d{2})).*Period:((\\d{2})(\\D{3})(\\d{2}))-((\\d{2})(\\D{3})(\\d{2}))",
+               "duty_line": "(?<Date>(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)(?<Day>\\d{2}))(?:(?<DutyCode>\\S+)(?<Airport>[A-Z]{3})(?:(?<DepTime>\\d{4})(?<ArrTime>\\d{4}))?(?<AcType>\\w*)?|X).*?(?:\\[(?<FT>FT\\d{1,2}:\\d{2})\\])?(?:\\s*?\\[(?<DP>DP\\d{1,2}:\\d{2})\\])?(?:\\s*?\\[(?<FDP>FDP\\d{1,2}:\\d{2})\\])?(?:\\s*?\\[(?<RT>RT\\d{1,2}:\\d{2})\\])?(?:\\s*?\\[(?<mFDP>mFDP\\d{1,2}:\\d{2})\\])?(?<Comment>.*?)(?:\\[(?<EQ>EQ\\d{1,2}:\\d{2})\\]).*?(?:\\[(?<BZW>BZW\\d{1,2}:\\d{2})\\])",
+               "name_line": "(?<Date>(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\\d{2})(?:(?<DutyCode>\\S+)(?<Airport>[A-Z]{3})(?:(?<DepTime>\\d{4})(?<ArrTime>\\d{4}))?)\\s*?crewonevent:(?<CrewNames>.*?)(?=Mon|Tue|Wed|Thu|Fri|Sat|Sun|RecurrentTraining)"
+          },
+          "time_formats": {
+              "date_format": "ddMMMyy",
+              "time_format": "hhmm"
+          }
+     }
+}

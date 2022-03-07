@@ -1,6 +1,6 @@
-import 'package:aviation_entities/airport.dart';
-import 'package:domain_model/domain_model.dart';
-import 'package:domain_model/src/infrastructure/sembast_utils.dart';
+import 'package:aviation_entities/aviation_entities.dart';
+import 'package:rotate_entities/duty.dart';
+import 'package:rotate_entities/src/duty/utils/sembast_utils.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast/timestamp.dart';
 
