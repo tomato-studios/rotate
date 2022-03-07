@@ -11,8 +11,7 @@ class Duty with _$Duty {
   const factory Duty.off(
       {required String dutyCode,
       @timestampConverter required DateTime start,
-      @timestampConverter required DateTime end,
-      required List<DutyElement> rosterElements}) = Off;
+      @timestampConverter required DateTime end}) = Off;
 
   const factory Duty.layover({
     required String dutyCode,

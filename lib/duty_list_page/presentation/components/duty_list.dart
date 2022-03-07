@@ -1,10 +1,10 @@
-import 'package:domain_model/domain_model.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_listview/infinite_listview.dart';
 import 'package:rotate/duty_list_page/application/cubit/duty_list_cubit.dart';
 import 'package:rotate/duty_list_page/presentation/components/duty_list_components/duty_list_entry.dart';
 import 'package:rotate/duty_list_page/presentation/duty_list_page.dart';
 import 'package:rotate/duty_list_page/presentation/utils/date_time_extension.dart';
+import 'package:rotate_entities/duty.dart';
 
 class DutyList extends StatelessWidget {
   const DutyList({

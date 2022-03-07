@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:domain_model/domain_model.dart';
 import 'package:get_it/get_it.dart';
 import 'package:navigation_data/navigation_data.dart';
+import 'package:rotate_entities/duty.dart';
 
 List<Duty> generateMockDuties() {
   final list = <Duty>[];

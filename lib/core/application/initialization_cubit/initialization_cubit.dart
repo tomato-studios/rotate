@@ -1,4 +1,3 @@
-import 'package:domain_model/domain_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,6 +11,7 @@ import 'package:rotate/core/presentation/device_orientation.dart';
 import 'package:rotate/core/presentation/fullscreen.dart';
 import 'package:rotate/duty_list_page/application/mock_duty_generator.dart';
 import 'package:rotate/shared/logger.dart';
+import 'package:rotate_entities/duty.dart';
 
 part 'initialization_cubit.freezed.dart';
 part 'initialization_state.dart';
@@ -50,7 +50,7 @@ Future<void> _initializeActions() async {
   await _initializeNavigationData(dbPath);
   final sembastDb = SembastDatabase();
   await sembastDb.initialize(dbPath);
-  DomainModelRepositories.initialize(sembastDb.instance);
+  RotateRepositories.initialize(sembastDb.instance);
   await _fillDbWithMockDuties();
 }
 

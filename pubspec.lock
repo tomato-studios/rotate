@@ -227,13 +227,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.1"
-  domain_model:
-    dependency: "direct main"
-    description:
-      path: "local_packages/domain_model"
-      relative: true
-    source: path
-    version: "0.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -619,7 +612,7 @@ packages:
       name: pub_semver
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   pubspec_parse:
     dependency: transitive
     description:
@@ -627,6 +620,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  rotate_entities:
+    dependency: "direct main"
+    description:
+      path: "local_packages/rotate_entities"
+      relative: true
+    source: path
+    version: "0.0.0"
   sembast:
     dependency: "direct main"
     description:

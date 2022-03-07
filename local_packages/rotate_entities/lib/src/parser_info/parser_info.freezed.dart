@@ -22,10 +22,14 @@ ParserInfo _$ParserInfoFromJson(Map<String, dynamic> json) {
 class _$ParserInfoTearOff {
   const _$ParserInfoTearOff();
 
-  _ParserInfo call({required String id, required String name}) {
+  _ParserInfo call(
+      {required String source,
+      required String regexStrings,
+      required String time_formats}) {
     return _ParserInfo(
-      id: id,
-      name: name,
+      source: source,
+      regexStrings: regexStrings,
+      time_formats: time_formats,
     );
   }
 
@@ -39,8 +43,9 @@ const $ParserInfo = _$ParserInfoTearOff();
 
 /// @nodoc
 mixin _$ParserInfo {
-  String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String get source => throw _privateConstructorUsedError;
+  String get regexStrings => throw _privateConstructorUsedError;
+  String get time_formats => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +58,7 @@ abstract class $ParserInfoCopyWith<$Res> {
   factory $ParserInfoCopyWith(
           ParserInfo value, $Res Function(ParserInfo) then) =
       _$ParserInfoCopyWithImpl<$Res>;
-  $Res call({String id, String name});
+  $Res call({String source, String regexStrings, String time_formats});
 }
 
 /// @nodoc
@@ -66,17 +71,22 @@ class _$ParserInfoCopyWithImpl<$Res> implements $ParserInfoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
+    Object? source = freezed,
+    Object? regexStrings = freezed,
+    Object? time_formats = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      source: source == freezed
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      regexStrings: regexStrings == freezed
+          ? _value.regexStrings
+          : regexStrings // ignore: cast_nullable_to_non_nullable
+              as String,
+      time_formats: time_formats == freezed
+          ? _value.time_formats
+          : time_formats // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -88,7 +98,7 @@ abstract class _$ParserInfoCopyWith<$Res> implements $ParserInfoCopyWith<$Res> {
           _ParserInfo value, $Res Function(_ParserInfo) then) =
       __$ParserInfoCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String name});
+  $Res call({String source, String regexStrings, String time_formats});
 }
 
 /// @nodoc
@@ -103,17 +113,22 @@ class __$ParserInfoCopyWithImpl<$Res> extends _$ParserInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
+    Object? source = freezed,
+    Object? regexStrings = freezed,
+    Object? time_formats = freezed,
   }) {
     return _then(_ParserInfo(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      source: source == freezed
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      regexStrings: regexStrings == freezed
+          ? _value.regexStrings
+          : regexStrings // ignore: cast_nullable_to_non_nullable
+              as String,
+      time_formats: time_formats == freezed
+          ? _value.time_formats
+          : time_formats // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -122,19 +137,25 @@ class __$ParserInfoCopyWithImpl<$Res> extends _$ParserInfoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ParserInfo extends _ParserInfo {
-  const _$_ParserInfo({required this.id, required this.name}) : super._();
+  const _$_ParserInfo(
+      {required this.source,
+      required this.regexStrings,
+      required this.time_formats})
+      : super._();
 
   factory _$_ParserInfo.fromJson(Map<String, dynamic> json) =>
       _$$_ParserInfoFromJson(json);
 
   @override
-  final String id;
+  final String source;
   @override
-  final String name;
+  final String regexStrings;
+  @override
+  final String time_formats;
 
   @override
   String toString() {
-    return 'ParserInfo(id: $id, name: $name)';
+    return 'ParserInfo(source: $source, regexStrings: $regexStrings, time_formats: $time_formats)';
   }
 
   @override
@@ -142,15 +163,19 @@ class _$_ParserInfo extends _ParserInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ParserInfo &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.source, source) &&
+            const DeepCollectionEquality()
+                .equals(other.regexStrings, regexStrings) &&
+            const DeepCollectionEquality()
+                .equals(other.time_formats, time_formats));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(source),
+      const DeepCollectionEquality().hash(regexStrings),
+      const DeepCollectionEquality().hash(time_formats));
 
   @JsonKey(ignore: true)
   @override
@@ -164,17 +189,21 @@ class _$_ParserInfo extends _ParserInfo {
 }
 
 abstract class _ParserInfo extends ParserInfo {
-  const factory _ParserInfo({required String id, required String name}) =
-      _$_ParserInfo;
+  const factory _ParserInfo(
+      {required String source,
+      required String regexStrings,
+      required String time_formats}) = _$_ParserInfo;
   const _ParserInfo._() : super._();
 
   factory _ParserInfo.fromJson(Map<String, dynamic> json) =
       _$_ParserInfo.fromJson;
 
   @override
-  String get id;
+  String get source;
   @override
-  String get name;
+  String get regexStrings;
+  @override
+  String get time_formats;
   @override
   @JsonKey(ignore: true)
   _$ParserInfoCopyWith<_ParserInfo> get copyWith =>

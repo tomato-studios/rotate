@@ -1,9 +1,9 @@
-import 'package:domain_model/domain_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:infinite_listview/infinite_listview.dart';
+import 'package:rotate_entities/duty.dart';
 
 part 'duty_list_cubit.freezed.dart';
 part 'duty_list_state.dart';

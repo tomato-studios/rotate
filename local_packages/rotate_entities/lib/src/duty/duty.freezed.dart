@@ -44,13 +44,11 @@ class _$DutyTearOff {
   Off off(
       {required String dutyCode,
       @timestampConverter required DateTime start,
-      @timestampConverter required DateTime end,
-      required List<DutyElement> rosterElements}) {
+      @timestampConverter required DateTime end}) {
     return Off(
       dutyCode: dutyCode,
       start: start,
       end: end,
-      rosterElements: rosterElements,
     );
   }
 
@@ -151,8 +149,7 @@ mixin _$Duty {
     required TResult Function(
             String dutyCode,
             @timestampConverter DateTime start,
-            @timestampConverter DateTime end,
-            List<DutyElement> rosterElements)
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
             String dutyCode,
@@ -194,7 +191,7 @@ mixin _$Duty {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -219,7 +216,7 @@ mixin _$Duty {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -330,8 +327,7 @@ abstract class $OffCopyWith<$Res> implements $DutyCopyWith<$Res> {
   $Res call(
       {String dutyCode,
       @timestampConverter DateTime start,
-      @timestampConverter DateTime end,
-      List<DutyElement> rosterElements});
+      @timestampConverter DateTime end});
 }
 
 /// @nodoc
@@ -348,7 +344,6 @@ class _$OffCopyWithImpl<$Res> extends _$DutyCopyWithImpl<$Res>
     Object? dutyCode = freezed,
     Object? start = freezed,
     Object? end = freezed,
-    Object? rosterElements = freezed,
   }) {
     return _then(Off(
       dutyCode: dutyCode == freezed
@@ -363,10 +358,6 @@ class _$OffCopyWithImpl<$Res> extends _$DutyCopyWithImpl<$Res>
           ? _value.end
           : end // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      rosterElements: rosterElements == freezed
-          ? _value.rosterElements
-          : rosterElements // ignore: cast_nullable_to_non_nullable
-              as List<DutyElement>,
     ));
   }
 }
@@ -378,7 +369,6 @@ class _$Off extends Off {
       {required this.dutyCode,
       @timestampConverter required this.start,
       @timestampConverter required this.end,
-      required this.rosterElements,
       String? $type})
       : $type = $type ?? 'off',
         super._();
@@ -393,15 +383,13 @@ class _$Off extends Off {
   @override
   @timestampConverter
   final DateTime end;
-  @override
-  final List<DutyElement> rosterElements;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Duty.off(dutyCode: $dutyCode, start: $start, end: $end, rosterElements: $rosterElements)';
+    return 'Duty.off(dutyCode: $dutyCode, start: $start, end: $end)';
   }
 
   @override
@@ -411,9 +399,7 @@ class _$Off extends Off {
             other is Off &&
             const DeepCollectionEquality().equals(other.dutyCode, dutyCode) &&
             const DeepCollectionEquality().equals(other.start, start) &&
-            const DeepCollectionEquality().equals(other.end, end) &&
-            const DeepCollectionEquality()
-                .equals(other.rosterElements, rosterElements));
+            const DeepCollectionEquality().equals(other.end, end));
   }
 
   @override
@@ -421,8 +407,7 @@ class _$Off extends Off {
       runtimeType,
       const DeepCollectionEquality().hash(dutyCode),
       const DeepCollectionEquality().hash(start),
-      const DeepCollectionEquality().hash(end),
-      const DeepCollectionEquality().hash(rosterElements));
+      const DeepCollectionEquality().hash(end));
 
   @JsonKey(ignore: true)
   @override
@@ -434,8 +419,7 @@ class _$Off extends Off {
     required TResult Function(
             String dutyCode,
             @timestampConverter DateTime start,
-            @timestampConverter DateTime end,
-            List<DutyElement> rosterElements)
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
             String dutyCode,
@@ -473,14 +457,14 @@ class _$Off extends Off {
             String to)
         groundTransport,
   }) {
-    return off(dutyCode, start, end, rosterElements);
+    return off(dutyCode, start, end);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -501,14 +485,14 @@ class _$Off extends Off {
             @timestampConverter DateTime end, String from, String to)?
         groundTransport,
   }) {
-    return off?.call(dutyCode, start, end, rosterElements);
+    return off?.call(dutyCode, start, end);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -531,7 +515,7 @@ class _$Off extends Off {
     required TResult orElse(),
   }) {
     if (off != null) {
-      return off(dutyCode, start, end, rosterElements);
+      return off(dutyCode, start, end);
     }
     return orElse();
   }
@@ -592,8 +576,7 @@ abstract class Off extends Duty {
   const factory Off(
       {required String dutyCode,
       @timestampConverter required DateTime start,
-      @timestampConverter required DateTime end,
-      required List<DutyElement> rosterElements}) = _$Off;
+      @timestampConverter required DateTime end}) = _$Off;
   const Off._() : super._();
 
   factory Off.fromJson(Map<String, dynamic> json) = _$Off.fromJson;
@@ -606,7 +589,6 @@ abstract class Off extends Duty {
   @override
   @timestampConverter
   DateTime get end;
-  List<DutyElement> get rosterElements;
   @override
   @JsonKey(ignore: true)
   $OffCopyWith<Off> get copyWith => throw _privateConstructorUsedError;
@@ -725,8 +707,7 @@ class _$Layover extends Layover {
     required TResult Function(
             String dutyCode,
             @timestampConverter DateTime start,
-            @timestampConverter DateTime end,
-            List<DutyElement> rosterElements)
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
             String dutyCode,
@@ -771,7 +752,7 @@ class _$Layover extends Layover {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -799,7 +780,7 @@ class _$Layover extends Layover {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -1007,8 +988,7 @@ class _$StandbyDuty extends StandbyDuty {
     required TResult Function(
             String dutyCode,
             @timestampConverter DateTime start,
-            @timestampConverter DateTime end,
-            List<DutyElement> rosterElements)
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
             String dutyCode,
@@ -1053,7 +1033,7 @@ class _$StandbyDuty extends StandbyDuty {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -1081,7 +1061,7 @@ class _$StandbyDuty extends StandbyDuty {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -1287,8 +1267,7 @@ class _$Reserve extends Reserve {
     required TResult Function(
             String dutyCode,
             @timestampConverter DateTime start,
-            @timestampConverter DateTime end,
-            List<DutyElement> rosterElements)
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
             String dutyCode,
@@ -1333,7 +1312,7 @@ class _$Reserve extends Reserve {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -1361,7 +1340,7 @@ class _$Reserve extends Reserve {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -1588,8 +1567,7 @@ class _$FlightDuty extends FlightDuty {
     required TResult Function(
             String dutyCode,
             @timestampConverter DateTime start,
-            @timestampConverter DateTime end,
-            List<DutyElement> rosterElements)
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
             String dutyCode,
@@ -1634,7 +1612,7 @@ class _$FlightDuty extends FlightDuty {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -1662,7 +1640,7 @@ class _$FlightDuty extends FlightDuty {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -1874,8 +1852,7 @@ class _$GroundEvent extends GroundEvent {
     required TResult Function(
             String dutyCode,
             @timestampConverter DateTime start,
-            @timestampConverter DateTime end,
-            List<DutyElement> rosterElements)
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
             String dutyCode,
@@ -1920,7 +1897,7 @@ class _$GroundEvent extends GroundEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -1948,7 +1925,7 @@ class _$GroundEvent extends GroundEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -2178,8 +2155,7 @@ class _$GroundTransport extends GroundTransport {
     required TResult Function(
             String dutyCode,
             @timestampConverter DateTime start,
-            @timestampConverter DateTime end,
-            List<DutyElement> rosterElements)
+            @timestampConverter DateTime end)
         off,
     required TResult Function(
             String dutyCode,
@@ -2224,7 +2200,7 @@ class _$GroundTransport extends GroundTransport {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?
@@ -2252,7 +2228,7 @@ class _$GroundTransport extends GroundTransport {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String dutyCode, @timestampConverter DateTime start,
-            @timestampConverter DateTime end, List<DutyElement> rosterElements)?
+            @timestampConverter DateTime end)?
         off,
     TResult Function(String dutyCode, @timestampConverter DateTime start,
             @timestampConverter DateTime end, String airport)?

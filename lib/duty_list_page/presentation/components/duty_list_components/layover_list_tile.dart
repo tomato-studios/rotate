@@ -1,5 +1,5 @@
-import 'package:domain_model/domain_model.dart';
 import 'package:flutter/material.dart';
+import 'package:rotate_entities/duty.dart';
 
 class LayoverListTile extends StatelessWidget {
   const LayoverListTile(

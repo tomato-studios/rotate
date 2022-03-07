@@ -46,11 +46,14 @@ class RosterParser {
     return compute(DutyElement.listFromJsonString, jsonString);
   }
 
-  Future<ParserInfo> _loadParserInfoFromFile(String currentAirlinePath) async {
+  ParserInfo _loadParserInfoFromFile(String currentAirlinePath) async {
     final jsonString = await rootBundle.loadString(
       '$currentAirlinePath/$_parserInfoFile',
       cache: false,
     );
-    return compute(ParserInfo.fromJson, jsonString);
+    Future<List<ParserInfo>> result =
+        compute(ParserInfo.listFromJsonString, jsonString);
+
+    return await result.
   }
 }

@@ -1,6 +1,6 @@
-import 'package:domain_model/domain_model.dart';
 import 'package:flutter/material.dart';
 import 'package:rotate/duty_list_page/presentation/components/duty_list_components/duty_list_entry.dart';
+import 'package:rotate_entities/duty.dart';
 
 class StandbyListTile extends StatelessWidget {
   const StandbyListTile(
