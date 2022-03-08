@@ -24,8 +24,8 @@ class _$ParserInfoTearOff {
 
   _ParserInfo call(
       {required String source,
-      required List<String> regex_strings,
-      required List<String> time_formats}) {
+      required Map<String, String> regex_strings,
+      required Map<String, String> time_formats}) {
     return _ParserInfo(
       source: source,
       regex_strings: regex_strings,
@@ -44,8 +44,8 @@ const $ParserInfo = _$ParserInfoTearOff();
 /// @nodoc
 mixin _$ParserInfo {
   String get source => throw _privateConstructorUsedError;
-  List<String> get regex_strings => throw _privateConstructorUsedError;
-  List<String> get time_formats => throw _privateConstructorUsedError;
+  Map<String, String> get regex_strings => throw _privateConstructorUsedError;
+  Map<String, String> get time_formats => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -59,7 +59,9 @@ abstract class $ParserInfoCopyWith<$Res> {
           ParserInfo value, $Res Function(ParserInfo) then) =
       _$ParserInfoCopyWithImpl<$Res>;
   $Res call(
-      {String source, List<String> regex_strings, List<String> time_formats});
+      {String source,
+      Map<String, String> regex_strings,
+      Map<String, String> time_formats});
 }
 
 /// @nodoc
@@ -84,11 +86,11 @@ class _$ParserInfoCopyWithImpl<$Res> implements $ParserInfoCopyWith<$Res> {
       regex_strings: regex_strings == freezed
           ? _value.regex_strings
           : regex_strings // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as Map<String, String>,
       time_formats: time_formats == freezed
           ? _value.time_formats
           : time_formats // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as Map<String, String>,
     ));
   }
 }
@@ -100,7 +102,9 @@ abstract class _$ParserInfoCopyWith<$Res> implements $ParserInfoCopyWith<$Res> {
       __$ParserInfoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String source, List<String> regex_strings, List<String> time_formats});
+      {String source,
+      Map<String, String> regex_strings,
+      Map<String, String> time_formats});
 }
 
 /// @nodoc
@@ -127,11 +131,11 @@ class __$ParserInfoCopyWithImpl<$Res> extends _$ParserInfoCopyWithImpl<$Res>
       regex_strings: regex_strings == freezed
           ? _value.regex_strings
           : regex_strings // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as Map<String, String>,
       time_formats: time_formats == freezed
           ? _value.time_formats
           : time_formats // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as Map<String, String>,
     ));
   }
 }
@@ -151,9 +155,9 @@ class _$_ParserInfo extends _ParserInfo {
   @override
   final String source;
   @override
-  final List<String> regex_strings;
+  final Map<String, String> regex_strings;
   @override
-  final List<String> time_formats;
+  final Map<String, String> time_formats;
 
   @override
   String toString() {
@@ -193,8 +197,8 @@ class _$_ParserInfo extends _ParserInfo {
 abstract class _ParserInfo extends ParserInfo {
   const factory _ParserInfo(
       {required String source,
-      required List<String> regex_strings,
-      required List<String> time_formats}) = _$_ParserInfo;
+      required Map<String, String> regex_strings,
+      required Map<String, String> time_formats}) = _$_ParserInfo;
   const _ParserInfo._() : super._();
 
   factory _ParserInfo.fromJson(Map<String, dynamic> json) =
@@ -203,9 +207,9 @@ abstract class _ParserInfo extends ParserInfo {
   @override
   String get source;
   @override
-  List<String> get regex_strings;
+  Map<String, String> get regex_strings;
   @override
-  List<String> get time_formats;
+  Map<String, String> get time_formats;
   @override
   @JsonKey(ignore: true)
   _$ParserInfoCopyWith<_ParserInfo> get copyWith =>

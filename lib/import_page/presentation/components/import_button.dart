@@ -37,7 +37,7 @@ class InitialBody extends StatelessWidget {
           const SizedBox(height: 20),
           IconButton(
             onPressed: () async {},
-            icon: const Icon(Icons.access_alarm),
+            icon: const Icon(Icons.bug_report),
           )
         ],
       ),

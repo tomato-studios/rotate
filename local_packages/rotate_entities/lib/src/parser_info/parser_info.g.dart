@@ -9,12 +9,8 @@ part of 'parser_info.dart';
 _$_ParserInfo _$$_ParserInfoFromJson(Map<String, dynamic> json) =>
     _$_ParserInfo(
       source: json['source'] as String,
-      regex_strings: (json['regex_strings'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
-      time_formats: (json['time_formats'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+      regex_strings: Map<String, String>.from(json['regex_strings'] as Map),
+      time_formats: Map<String, String>.from(json['time_formats'] as Map),
     );
 
 Map<String, dynamic> _$$_ParserInfoToJson(_$_ParserInfo instance) =>

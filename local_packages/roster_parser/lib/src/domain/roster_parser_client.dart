@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rotate_entities/rotate_entities.dart';
@@ -13,7 +15,7 @@ class RosterParserClient {
 
   Future<List<DutyCode>>? _dutyCodes;
   Future<List<DutyElement>>? _dutyElements;
-  Future<List<ParserInfo>>? _parserInfo;
+  Future<ParserInfo>? _parserInfo;
 
   RosterParserClient(this._airlineCode) {
     final currentAirlinePath = '$_airlineConfigs/$_airlineCode';
@@ -41,12 +43,11 @@ class RosterParserClient {
     return compute(DutyElement.listFromJsonString, jsonString);
   }
 
-  Future<List<ParserInfo>> _loadParserInfoFromFile(
-      String currentAirlinePath) async {
+  Future<ParserInfo> _loadParserInfoFromFile(String currentAirlinePath) async {
     final jsonString = await rootBundle.loadString(
       '$currentAirlinePath/$_parserInfoFile',
       cache: false,
     );
-    return compute(ParserInfo.listFromJsonString, jsonString);
+    return compute(ParserInfo.rawFromJson, jsonString);
   }
 }
