@@ -8,7 +8,7 @@ import 'package:rotate_entities/rotate_entities.dart';
 class RosterParserClient {
   final String airlineCode;
 
-  static const _airlineConfigs = 'package/roster_parser/data/airline_configs';
+  static const _airlineConfigs = 'packages/roster_parser/data/airline_configs';
   static const _dutyCodesFile = 'duty_codes.json';
   static const _dutyElementsFile = 'duty_elements.json';
   static const _parserInfoFile = 'parser_info.json';

@@ -10,12 +10,12 @@ class ParserInfo with _$ParserInfo {
   const ParserInfo._();
   const factory ParserInfo(
       {required String source,
-      required String regexStrings,
-      required String time_formats}) = _ParserInfo;
+      required List<String> regex_strings,
+      required List<String> time_formats}) = _ParserInfo;
 
   //! FOR DATABASE ACCESS / MUST MATCH ATTRIBUTE NAMES
-  static const $source = 'id';
-  static const $regexStrings = 'name';
+  static const $source = 'source';
+  static const $regex_strings = 'regex_strings';
   static const $time_formats = 'time_formats';
 
   factory ParserInfo.fromJson(Map<String, dynamic> json) =>

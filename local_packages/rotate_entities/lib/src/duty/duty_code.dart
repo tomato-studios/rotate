@@ -14,6 +14,7 @@ class DutyCode with _$DutyCode {
   //! FOR DATABASE ACCESS / MUST MATCH ATTRIBUTE NAMES
   static const $id = 'id';
   static const $name = 'name';
+  static const $codes = 'codes';
 
   factory DutyCode.fromJson(Map<String, dynamic> json) =>
       _$DutyCodeFromJson(json);
