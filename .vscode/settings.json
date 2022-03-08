@@ -19,5 +19,8 @@
     "**/.packages": true,
     "**/.metadata": true
   },
-  "explorerExclude.backup": null
+"explorerExclude.backup": null,
+"cSpell.words": [
+    "fullscreen"
+]
 }

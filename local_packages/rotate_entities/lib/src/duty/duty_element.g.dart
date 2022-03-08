@@ -8,12 +8,14 @@ part of 'duty_element.dart';
 
 _$_DutyElement _$$_DutyElementFromJson(Map<String, dynamic> json) =>
     _$_DutyElement(
-      id: json['id'] as String,
       name: json['name'] as String,
+      description: json['description'] as String,
+      regex_group_id: json['regex_group_id'] as String,
     );
 
 Map<String, dynamic> _$$_DutyElementToJson(_$_DutyElement instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'name': instance.name,
+      'description': instance.description,
+      'regex_group_id': instance.regex_group_id,
     };

@@ -8,10 +8,11 @@ part 'parser_info.g.dart';
 @freezed
 class ParserInfo with _$ParserInfo {
   const ParserInfo._();
-  const factory ParserInfo(
-      {required String source,
-      required List<String> regex_strings,
-      required List<String> time_formats}) = _ParserInfo;
+  const factory ParserInfo({
+    required String source,
+    required List<String> regex_strings,
+    required List<String> time_formats,
+  }) = _ParserInfo;
 
   //! FOR DATABASE ACCESS / MUST MATCH ATTRIBUTE NAMES
   static const $source = 'source';

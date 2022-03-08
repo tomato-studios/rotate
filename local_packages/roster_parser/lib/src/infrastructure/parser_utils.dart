@@ -13,45 +13,8 @@
 // /// Helper class for Parsing operations
 // ///
 // class ParserUtils {
-//   // Regex Strings
-//   final regexNewLine = RegExp(r'\r\n|\n|\r');
-//   final regexPkLine = RegExp(r'(\w{3})CFG\/CREW\/(\d*\w{1})');
-//   final regexIdLine = RegExp(
-//       r'^Individualdutyplanfor\d*\w{1}(.*),(.*)NetLine.*CREWLINK((\d{2})(\D{3})(\d{2})).*Period:((\d{2})(\D{3})(\d{2}))-((\d{2})(\D{3})(\d{2}))');
-//   final regexDutyLines = RegExp(
-//       r'(?<Date>(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)(?<Day>\d{2}))(?:(?<DutyCode>\S+)(?<Airport>[A-Z]{3})(?:(?<DepTime>\d{4})(?<ArrTime>\d{4}))?(?<AcType>\w*)?|X).*?(?:\[(?<FT>FT\d{1,2}:\d{2})\])?(?:\s*?\[(?<DP>DP\d{1,2}:\d{2})\])?(?:\s*?\[(?<FDP>FDP\d{1,2}:\d{2})\])?(?:\s*?\[(?<RT>RT\d{1,2}:\d{2})\])?(?:\s*?\[(?<mFDP>mFDP\d{1,2}:\d{2})\])?(?<Comment>.*?)(?:\[(?<EQ>EQ\d{1,2}:\d{2})\]).*?(?:\[(?<BZW>BZW\d{1,2}:\d{2})\])');
-//   final regexNameLines = RegExp(
-//       r'(?<Date>(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\d{2})(?:(?<DutyCode>\S+)(?<Airport>[A-Z]{3})(?:(?<DepTime>\d{4})(?<ArrTime>\d{4}))?)\s*?crewonevent:(?<CrewNames>.*?)(?=Mon|Tue|Wed|Thu|Fri|Sat|Sun|RecurrentTraining)');
-
 //   final DateFormat dateFormat = DateFormat("ddMMMyy");
 //   final DateFormat formatDepTime = DateFormat('hhmm');
-
-//   // Regex Groups
-//   final regexGroupDate = 'Date';
-//   final regexGroupDay = 'Day';
-//   final regexGroupDutyCode = 'DutyCode';
-//   final regexGroupAirport = 'Airport';
-//   final regexGroupDepTime = 'DepTime';
-//   final regexGroupArrTime = 'ArrTime';
-//   final regexGroupAcType = 'AcType';
-//   final regexGroupFT = 'FT';
-//   final regexGroupDP = 'DP';
-//   final regexGroupFDP = 'FDP';
-//   final regexGroupRT = 'RT';
-//   final regexGroupMFDP = 'mFDP';
-//   final regexGroupComment = 'Comment';
-//   final regexGroupEQ = 'EQ';
-//   final regexGroupBZW = 'BZW';
-
-//   // Duty codes
-//   static const List<String> _offCodes = <String>['OFF', 'ORT', '-'];
-//   static const List<String> _hotCodes = <String>['HOT'];
-//   static const List<String> _sbyCodes = <String>['WARPX_3', 'RC'];
-//   static const List<String> _resCodes = <String>['WARPX_3', 'RC'];
-//   static const List<String> _fltCodes = <String>['WARPX_3', 'RC'];
-//   static const List<String> _gndCodes = <String>['GC_NL', 'RFT', 'DGR'];
-//   static const List<String> _trvCodes = <String>['WARPX_3', 'RC'];
-//   static const List<String> _simCodes = <String>['WARPX_3', 'RC'];
 
 //   // For Debug only
 //   static const testRoster = 'Roster_22_03.pdf';

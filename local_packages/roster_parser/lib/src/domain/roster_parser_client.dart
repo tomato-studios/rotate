@@ -1,12 +1,10 @@
-import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:rotate_entities/rotate_entities.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class RosterParserClient {
-  final String airlineCode;
+  final String _airlineCode;
 
   static const _airlineConfigs = 'packages/roster_parser/data/airline_configs';
   static const _dutyCodesFile = 'duty_codes.json';
@@ -17,8 +15,8 @@ class RosterParserClient {
   Future<List<DutyElement>>? _dutyElements;
   Future<List<ParserInfo>>? _parserInfo;
 
-  RosterParserClient(this.airlineCode) {
-    final currentAirlinePath = '$_airlineConfigs/$airlineCode';
+  RosterParserClient(this._airlineCode) {
+    final currentAirlinePath = '$_airlineConfigs/$_airlineCode';
 
     _dutyCodes = _loadDutyCodesFromFile(currentAirlinePath);
     _dutyElements = _loadDutyElementsFromFile(currentAirlinePath);

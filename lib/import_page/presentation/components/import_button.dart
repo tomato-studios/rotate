@@ -34,6 +34,11 @@ class InitialBody extends StatelessWidget {
             },
             icon: const Icon(Icons.upload_file_rounded),
           ),
+          const SizedBox(height: 20),
+          IconButton(
+            onPressed: () async {},
+            icon: const Icon(Icons.access_alarm),
+          )
         ],
       ),
     );

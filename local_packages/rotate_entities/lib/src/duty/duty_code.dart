@@ -8,8 +8,11 @@ part 'duty_code.g.dart';
 @freezed
 class DutyCode with _$DutyCode {
   const DutyCode._();
-  const factory DutyCode({required String id, required String name}) =
-      _DutyCode;
+  const factory DutyCode({
+    required String id,
+    required String name,
+    required List<String> codes,
+  }) = _DutyCode;
 
   //! FOR DATABASE ACCESS / MUST MATCH ATTRIBUTE NAMES
   static const $id = 'id';

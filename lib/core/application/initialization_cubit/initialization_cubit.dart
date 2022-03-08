@@ -21,7 +21,7 @@ typedef FutureVoid = Future<void> Function();
 
 ///_ Here all actions take place which have to be done before showing anything to the user.
 /// Like e.g. database initialization and calling of other initialize methods of other Cubits.
-/// While initializatino is in progress, the SplashPage is shown to the user.
+/// While initialization is in progress, the SplashPage is shown to the user.
 class InitializationCubit extends Cubit<InitializationState> {
   InitializationCubit() : super(const InitializationState.loading());
 

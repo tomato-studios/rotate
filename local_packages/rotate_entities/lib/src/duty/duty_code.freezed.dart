@@ -22,10 +22,12 @@ DutyCode _$DutyCodeFromJson(Map<String, dynamic> json) {
 class _$DutyCodeTearOff {
   const _$DutyCodeTearOff();
 
-  _DutyCode call({required String id, required String name}) {
+  _DutyCode call(
+      {required String id, required String name, required List<String> codes}) {
     return _DutyCode(
       id: id,
       name: name,
+      codes: codes,
     );
   }
 
@@ -41,6 +43,7 @@ const $DutyCode = _$DutyCodeTearOff();
 mixin _$DutyCode {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  List<String> get codes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +55,7 @@ mixin _$DutyCode {
 abstract class $DutyCodeCopyWith<$Res> {
   factory $DutyCodeCopyWith(DutyCode value, $Res Function(DutyCode) then) =
       _$DutyCodeCopyWithImpl<$Res>;
-  $Res call({String id, String name});
+  $Res call({String id, String name, List<String> codes});
 }
 
 /// @nodoc
@@ -67,6 +70,7 @@ class _$DutyCodeCopyWithImpl<$Res> implements $DutyCodeCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? codes = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -77,6 +81,10 @@ class _$DutyCodeCopyWithImpl<$Res> implements $DutyCodeCopyWith<$Res> {
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      codes: codes == freezed
+          ? _value.codes
+          : codes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -86,7 +94,7 @@ abstract class _$DutyCodeCopyWith<$Res> implements $DutyCodeCopyWith<$Res> {
   factory _$DutyCodeCopyWith(_DutyCode value, $Res Function(_DutyCode) then) =
       __$DutyCodeCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String name});
+  $Res call({String id, String name, List<String> codes});
 }
 
 /// @nodoc
@@ -102,6 +110,7 @@ class __$DutyCodeCopyWithImpl<$Res> extends _$DutyCodeCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? codes = freezed,
   }) {
     return _then(_DutyCode(
       id: id == freezed
@@ -112,6 +121,10 @@ class __$DutyCodeCopyWithImpl<$Res> extends _$DutyCodeCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      codes: codes == freezed
+          ? _value.codes
+          : codes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -119,7 +132,8 @@ class __$DutyCodeCopyWithImpl<$Res> extends _$DutyCodeCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DutyCode extends _DutyCode {
-  const _$_DutyCode({required this.id, required this.name}) : super._();
+  const _$_DutyCode({required this.id, required this.name, required this.codes})
+      : super._();
 
   factory _$_DutyCode.fromJson(Map<String, dynamic> json) =>
       _$$_DutyCodeFromJson(json);
@@ -128,10 +142,12 @@ class _$_DutyCode extends _DutyCode {
   final String id;
   @override
   final String name;
+  @override
+  final List<String> codes;
 
   @override
   String toString() {
-    return 'DutyCode(id: $id, name: $name)';
+    return 'DutyCode(id: $id, name: $name, codes: $codes)';
   }
 
   @override
@@ -140,14 +156,16 @@ class _$_DutyCode extends _DutyCode {
         (other.runtimeType == runtimeType &&
             other is _DutyCode &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.codes, codes));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(codes));
 
   @JsonKey(ignore: true)
   @override
@@ -161,8 +179,10 @@ class _$_DutyCode extends _DutyCode {
 }
 
 abstract class _DutyCode extends DutyCode {
-  const factory _DutyCode({required String id, required String name}) =
-      _$_DutyCode;
+  const factory _DutyCode(
+      {required String id,
+      required String name,
+      required List<String> codes}) = _$_DutyCode;
   const _DutyCode._() : super._();
 
   factory _DutyCode.fromJson(Map<String, dynamic> json) = _$_DutyCode.fromJson;
@@ -171,6 +191,8 @@ abstract class _DutyCode extends DutyCode {
   String get id;
   @override
   String get name;
+  @override
+  List<String> get codes;
   @override
   @JsonKey(ignore: true)
   _$DutyCodeCopyWith<_DutyCode> get copyWith =>

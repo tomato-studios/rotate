@@ -22,10 +22,14 @@ DutyElement _$DutyElementFromJson(Map<String, dynamic> json) {
 class _$DutyElementTearOff {
   const _$DutyElementTearOff();
 
-  _DutyElement call({required String id, required String name}) {
+  _DutyElement call(
+      {required String name,
+      required String description,
+      required String regex_group_id}) {
     return _DutyElement(
-      id: id,
       name: name,
+      description: description,
+      regex_group_id: regex_group_id,
     );
   }
 
@@ -39,8 +43,9 @@ const $DutyElement = _$DutyElementTearOff();
 
 /// @nodoc
 mixin _$DutyElement {
-  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get regex_group_id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +58,7 @@ abstract class $DutyElementCopyWith<$Res> {
   factory $DutyElementCopyWith(
           DutyElement value, $Res Function(DutyElement) then) =
       _$DutyElementCopyWithImpl<$Res>;
-  $Res call({String id, String name});
+  $Res call({String name, String description, String regex_group_id});
 }
 
 /// @nodoc
@@ -66,17 +71,22 @@ class _$DutyElementCopyWithImpl<$Res> implements $DutyElementCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? name = freezed,
+    Object? description = freezed,
+    Object? regex_group_id = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      regex_group_id: regex_group_id == freezed
+          ? _value.regex_group_id
+          : regex_group_id // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -89,7 +99,7 @@ abstract class _$DutyElementCopyWith<$Res>
           _DutyElement value, $Res Function(_DutyElement) then) =
       __$DutyElementCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String name});
+  $Res call({String name, String description, String regex_group_id});
 }
 
 /// @nodoc
@@ -104,17 +114,22 @@ class __$DutyElementCopyWithImpl<$Res> extends _$DutyElementCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? name = freezed,
+    Object? description = freezed,
+    Object? regex_group_id = freezed,
   }) {
     return _then(_DutyElement(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      regex_group_id: regex_group_id == freezed
+          ? _value.regex_group_id
+          : regex_group_id // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -123,19 +138,25 @@ class __$DutyElementCopyWithImpl<$Res> extends _$DutyElementCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_DutyElement extends _DutyElement {
-  const _$_DutyElement({required this.id, required this.name}) : super._();
+  const _$_DutyElement(
+      {required this.name,
+      required this.description,
+      required this.regex_group_id})
+      : super._();
 
   factory _$_DutyElement.fromJson(Map<String, dynamic> json) =>
       _$$_DutyElementFromJson(json);
 
   @override
-  final String id;
-  @override
   final String name;
+  @override
+  final String description;
+  @override
+  final String regex_group_id;
 
   @override
   String toString() {
-    return 'DutyElement(id: $id, name: $name)';
+    return 'DutyElement(name: $name, description: $description, regex_group_id: $regex_group_id)';
   }
 
   @override
@@ -143,15 +164,19 @@ class _$_DutyElement extends _DutyElement {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _DutyElement &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality()
+                .equals(other.regex_group_id, regex_group_id));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(regex_group_id));
 
   @JsonKey(ignore: true)
   @override
@@ -165,17 +190,21 @@ class _$_DutyElement extends _DutyElement {
 }
 
 abstract class _DutyElement extends DutyElement {
-  const factory _DutyElement({required String id, required String name}) =
-      _$_DutyElement;
+  const factory _DutyElement(
+      {required String name,
+      required String description,
+      required String regex_group_id}) = _$_DutyElement;
   const _DutyElement._() : super._();
 
   factory _DutyElement.fromJson(Map<String, dynamic> json) =
       _$_DutyElement.fromJson;
 
   @override
-  String get id;
-  @override
   String get name;
+  @override
+  String get description;
+  @override
+  String get regex_group_id;
   @override
   @JsonKey(ignore: true)
   _$DutyElementCopyWith<_DutyElement> get copyWith =>

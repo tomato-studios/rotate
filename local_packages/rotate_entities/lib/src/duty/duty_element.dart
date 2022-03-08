@@ -8,8 +8,11 @@ part 'duty_element.g.dart';
 @freezed
 class DutyElement with _$DutyElement {
   const DutyElement._();
-  const factory DutyElement({required String id, required String name}) =
-      _DutyElement;
+  const factory DutyElement({
+    required String name,
+    required String description,
+    required String regex_group_id,
+  }) = _DutyElement;
 
   //! FOR DATABASE ACCESS / MUST MATCH ATTRIBUTE NAMES
   static const $name = 'name';
